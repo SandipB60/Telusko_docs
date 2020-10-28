@@ -1,4 +1,0 @@
-#74 Python | Git | PyCharm | GitHub					https://www.youtube.com/watch?v=UBLONzkmReE&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=79
-  ------------------------------
-GIT : Distributed Version Control System
-Git ub, Bit Buckrt
