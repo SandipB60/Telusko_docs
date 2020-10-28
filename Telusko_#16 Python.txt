@@ -1,8 +1,0 @@
-#16 Python Tutorial for Beginners | Import Math Functions in Python					https://www.youtube.com/watch?v=EkYrfV7M1ks&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=19
-  ---------------------------------
-import math
-x=math.sqrt(25)
-print(x)
-
-import math as m
-from math import sqrt, pow
