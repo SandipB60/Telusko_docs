@@ -1,0 +1,90 @@
+Abstract Class and Abstract Method in Python					https://www.youtube.com/watch?v=UDmJGvM-OUw&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=65
+  ----------------------------
+Abstract class will have atleast one abstract method (which does not have any definition and has only declaration and then add "@abstractmethod" and ("pass" ????) and use "from abc import ABC, abstractmethod"
+The child claaes and methods will have some restrictions if it is under any Abstract class.
+  ++++++++++++++++++++++++++++++++
+from abc import ABC, abstractmethod
+
+class Computer(ABC):
+
+    @abstractmethod
+    def process(self):
+        pass
+
+class Laptop(Computer):
+    pass
+
+#comp1=Computer() ## TypeError: Can't instantiate abstract class
+lap1=Laptop()     ## TypeError: Can't instantiate abstract class
+
+  ++++++++++++++++++++++++++++++
+
+from abc import ABC, abstractmethod
+
+class Computer(ABC):
+
+    @abstractmethod
+    def process(self):
+        pass
+class Laptop(Computer):
+
+    def process(self):
+        print ("its running")
+
+#comp1=Computer() ##TypeError: Can't instantiate abstract class Computer with abstract methods proces
+#comp1.process() ##TypeError: Can't instantiate abstract class Computer with abstract methods proces
+lap1=Laptop()
+lap1.process()
+  -------------------------
+its running
+  ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+from abc import ABC, abstractmethod
+
+class Computer(ABC):
+
+    @abstractmethod
+    def process(self):
+        pass
+class Laptop(Computer):
+    
+    @abstractmethod
+    def process(self):
+        print ("its running")
+
+#comp1=Computer() ##TypeError: Can't instantiate abstract class Computer with abstract methods proces
+#comp1.process() ##TypeError: Can't instantiate abstract class Computer with abstract methods proces
+lap1=Laptop()
+lap1.process()
+  ---------------------
+TypeError: Can't instantiate abstract class Laptop with abstract methods process
+
+because @abstractmethod in class Laptop(Computer):
+  +++++++++++++++++++++++++++++++++++++++++
+
+from abc import ABC, abstractmethod
+
+class Computer(ABC):
+
+    @abstractmethod
+    def process(self):
+        pass
+class Laptop(Computer):
+
+    @abstractmethod
+    def process(self):
+        print ("Laptop-its running")
+
+class NewTypeLaptop(Laptop):
+    #@abstractmethod
+    def process(self):
+        print ("NewTypeLaptop-its running")
+
+
+NTL1=NewTypeLaptop()
+NTL1.process()
+  ------------------
+NewTypeLaptop-its running
+If #@abstractmethod before process(self): on class NewTypeLaptop(Laptop):, it is not an abstract class
+++++++++++++++++++++++++++++++++++
+
