@@ -1,2 +1,0 @@
-#72 MySQL Workbench Setup | Python Database Connection					https://www.youtube.com/watch?v=WDEyt2VHpj4&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=77
-  -----------------------
