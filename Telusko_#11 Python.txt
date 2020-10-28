@@ -1,0 +1,79 @@
+#11 Python Tutorial for Beginners | Operators in Python					https://www.youtube.com/watch?v=v5MR5JnKcZI&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=13
+  ------------------------------
+Operators:
+Arithmetic
+Assignment
+Relational
+Logical
+Unary
+  ------------------------------
+Arithmetic
+  ------------------------------
+Assignment
+
+x=5
+x=x+2
+print(x)
+
+x+=2
+print(x)
+
+x*=3
+print(x)
+
+a,b=5,6
+print(b,a)
+  ------------------------------
+Unary:
+n=7
+print(n)
+n=-n
+print(n)
+
+  ------------------------------
+Relational:
+>, <, ==, ,<=,>=,!=
+print(a<=b)
+  ------------------------------
+Logical:
+and, or, not
+
+and --> all must be tre
+or  --> any one has to be true
+
+a=5
+b=4
+c=1
+d=10
+print(a<8|b>5)
+print(a<8 & b>5)
+print(c<=1 &d > 9)
+print((a<8 | b>5)& (c<=1 &d > 9))
+print((a<8 | b>5)| (c<=1 &d > 9))
+True
+False
+False
+False
+True
+
+a=5
+b=4
+c=1
+d=10
+print(a<8 or b>5)
+print(a<8 and b>5)
+print(c<=1 and d > 9)
+print((a<8 or b>5) and (c<=1 and d > 9))
+print((a<8 or b>5) or (c<=1 and d > 9))
+
+True
+False
+True
+True
+True
+
+x=not True
+print(x)
+
+print(not x)
+  ------------------------------

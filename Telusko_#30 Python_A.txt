@@ -1,0 +1,127 @@
+#30 Python Tutorial for Beginners | Copying an Array in Python					https://www.youtube.com/watch?v=8sF85TyunQA&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=34
+   -------------
+alias--> arr1=arr2 --> address & elements are same... one array , one address
+shallow copy-->arr.view()--> copy the element but both arrays are independent. if you update one array, both will be updated.
+deep copy -->arr.copy() --> two diffrent copies. if you update one array, only that array will be updated independent of other array.
+
+  ------------------
+from numpy import *
+arr1=array([1,2,5,8])
+print(arr1)
+print(sin(arr1))
+  ------------------
+
+from numpy import *
+arr1=array([1,2,3,4,5])
+arr2=array([6,1,9,3,2])
+print(concatenate([arr1,arr2]))
+  ------------------
+
+arr1=array([1,2,3,4,5])
+arr2=arr1
+
+print(arr1)
+print(arr2)
+print(id(arr1))
+print(id(arr2))
+
+[1 2 3 4 5]
+[1 2 3 4 5]
+3144612965312
+3144612965312
+
+  ------------------------------------------
+from numpy import *
+#arr1=array([1,2,3,4,5])
+arr7=array([1,2,3,4,5])
+
+print(arr1)
+print(arr7)
+print(id(arr1))
+print(id(arr7))
+[1 2 3 4 5]
+[1 2 3 4 5]
+3144612965312
+3144612974800
+
+  --------------------------------
+from numpy import *
+
+#arr1=array([1,2,3,4,5])
+arr5=arr1.view()
+
+print(arr1)
+print(arr5)
+print(id(arr1))
+print(id(arr5))
+
+[1 2 3 4 5]
+[1 2 3 4 5]
+3144612965312
+3144612975360
+    -----------------------------
+arr5[1]=10
+print(arr1)
+print(arr5)
+print(id(arr1))
+print(id(arr5))
+
+[ 1 10  3  4  5]
+[ 1 10  3  4  5]
+3144612965312
+3144612975360
+
+  -------------------------
+arr1[3]=99
+print(arr1)
+print(arr5)
+print(id(arr1))
+print(id(arr5))
+
+[ 1 10  3 99  5]
+[ 1 10  3 99  5]
+3144612965312
+3144612975360
+  --------------------------------
+from numpy import *
+
+arr1=array([1,2,3,4,5])
+arr9=arr1.copy()
+
+print(arr1)
+print(arr9)
+print(id(arr1))
+print(id(arr9))
+
+[1 2 3 4 5]
+[1 2 3 4 5]
+3144613013824
+3144613012304
+  ------------------------------------
+arr1[3]=99
+print(arr1)
+print(arr9)
+print(id(arr1))
+print(id(arr9))
+
+[ 1  2  3 99  5]
+[1 2 3 4 5]
+3144613013824
+3144613012304
+  ------------------------------------
+arr9[3]=77
+print(arr1)
+print(arr9)
+print(id(arr1))
+print(id(arr9))
+
+[ 1  2  3 99  5]
+[ 1  2  3 77  5]
+3144613013824
+3144613012304
+  ------------------------------------
+
+
+
+
+

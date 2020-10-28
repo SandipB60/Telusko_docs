@@ -1,0 +1,12 @@
+#48 Python Tutorial for Beginners | Object Oriented Programming | Introduction					https://www.youtube.com/watch?v=gZwPdqC2Os0&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=52
+   ----------------------------
+
+Object
+  1. Attribute
+  2. Behaviour
+
+Class: it is the design/ blue print. 
+Object: real entity or instance of a design(class)
+
+Class is design, that is done once but manufactured multiple times.
+   ----------------------------

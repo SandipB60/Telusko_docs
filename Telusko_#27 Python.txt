@@ -1,0 +1,35 @@
+#27 Python Tutorial for Beginners | Array values from User in Python | Search in Array					https://www.youtube.com/watch?v=9c9qhIcB3NA&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=31
+  ---------------------
+array--> package for single dim array
+
+from array import *
+n=5
+arr=array('i',[])
+arr=[0,1,2,3,4]
+print(arr[0])
+
+
+from array import *
+n=int(input("Enter range:"))
+arr=array('i',[])
+for i in range(n):
+    x=int(input("Enter int value:"))
+    arr.append(x)
+print(arr)
+print('---------------------------')
+k=0
+for j in arr:
+    print(arr[k])
+    k=k+1
+print('---------------------------')
+j=0
+x=int(input("Search value:"))
+for i in arr :
+    if i==x:
+        print("Index of ",x," is: ",j)
+        #break
+    j=j+1
+print('------------end---------------')
+print("index from func:", arr.index(x))
+
+print('------------final end---------------')

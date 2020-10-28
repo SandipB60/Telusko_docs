@@ -1,0 +1,413 @@
+Aliases
+http://gestaltrevision.be/wiki/python/aliases
+
+
+print("------a = 5 : b = a----")
+a = 5
+
+# Create an alias identifier for this variable
+b = a
+
+# Observe how they refer to the same variable!
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+print(" ------1--------")
+print("------c = b : b = 3----")
+# Create another alias
+c = b
+
+# Now assign a new value to b!
+b = 3
+
+# And observe how a and c are still the same variable
+# But b is not
+print(a)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+print(f"id(c)={id(c)}")
+
+print(" -----2---------")
+print("------b = a : ----")
+b = a
+
+print(a,b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+print(" ------3--------")
+print("------b = 5 : ----")
+b = 5
+print(f"id(b)={id(b)}")
+# We used an assignment, but the value didn't actually change
+# So the alias remains unbroken
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+  ---------------------------------
+------a = 5 : b = a----
+id(a)=140704136133824
+id(b)=140704136133824
+ ------1--------
+  ------c = b : b = 3----
+5
+id(a)=140704136133824
+id(b)=140704136133760
+id(c)=140704136133824
+ -----2---------
+ ------b = a : ----
+5 5
+id(a)=140704136133824
+id(b)=140704136133824
+ ------3--------
+ ------b = 5 : ----
+id(b)=140704136133824
+id(a)=140704136133824
+id(b)=140704136133824
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+a = [5]
+
+# Create an alias identifier for this list
+b = a
+
+print(a, b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+
+# Now change the <list> b in-place
+b.append(1)
+
+# And observe how this also changes a
+# The alias is not broken by in-place operations
+print(a, b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}") 
+  ---------------------------------
+[5] [5]
+id(a)=2230346994184
+id(b)=2230346994184
+[5, 1] [5, 1]
+id(a)=2230346994184
+id(b)=2230346994184 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Create a <list>
+a = [5]
+
+# Create a new <list> with the same value
+b = list(a)
+
+# We now have two separate variables with identical but separate values
+print(a, b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+
+# Same with the full slice technique:
+b = a[:]
+print(a, b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+  -----------------------------------------
+5] [5]
+id(a)=2787963982344
+id(b)=2787965875400
+[5] [5]
+id(a)=2787963982344
+id(b)=2787965513160
+
+  +++++++++++++++++++++++++++++++++++++++++
+# Create <tuple>
+a = (5,)
+
+# Try to force a copy
+b = tuple(a)
+
+# It didn't work...
+print(a, b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+
+# Neither does this
+b = a[:]
+print(a, b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+  ---------------------------------
+(5,) (5,)
+id(a)=2166520862280
+id(b)=2166520862280
+(5,) (5,)
+id(a)=2166520862280
+id(b)=2166520862280
+  +++++++++++++++++++++++++++++++++++++++
+v_list = [1, 2, 3]
+print(f"1: v_list={(v_list)}")
+print(f"1: id(v_list)={id(v_list)}")
+x_list=[]
+print(f"2: x_list={(x_list)}")
+print(f"2: id(x_list)={id(x_list)}")
+for i in v_list:
+    x_list.append(i)
+    i = i + 1
+    print(f"3: i={(i)}")
+    print(f"3: id(i)={id(i)}")
+    print(f"2B: x_list={(x_list)}")
+    print(f"2B: id(x_list)={id(x_list)}")
+print(f"4: x_list={(x_list)}")
+print(f"4: id(x_list)={id(x_list)}")
+
+print(f"5: v_list={(v_list)}")
+print(f"5: id(v_list)={id(v_list)}")
+  ----------------------------------
+1: v_list=[1, 2, 3]
+1: id(v_list)=2343152996872
+2: x_list=[]
+2: id(x_list)=2343153610184
+3: i=2
+3: id(i)=140704019020896
+2B: x_list=[1]
+2B: id(x_list)=2343153610184
+3: i=3
+3: id(i)=140704019020928
+2B: x_list=[1, 2]
+2B: id(x_list)=2343153610184
+3: i=4
+3: id(i)=140704019020960
+2B: x_list=[1, 2, 3]
+2B: id(x_list)=2343153610184
+4: x_list=[1, 2, 3]
+4: id(x_list)=2343153610184
+5: v_list=[1, 2, 3]
+5: id(v_list)=2343152996872
+  +++++++++++++++++++++++++++++++++++++++
+v_list = [[1],[2],[3]]
+print(f"1: v_list={(v_list)}")
+print(f"1: id(v_list)={id(v_list)}")
+x_list=[]
+print(f"2: x_list={(x_list)}")
+print(f"2: id(x_list)={id(x_list)}")
+for i in v_list:
+    x_list.append(i)
+    print(f"3: i={(i)}")
+    print(f"3: id(i)={id(i)}")
+    print(f"2B: x_list={(x_list)}")
+    print(f"2B: id(x_list)={id(x_list)}")
+print(f"4: x_list={(x_list)}")
+print(f"4: id(x_list)={id(x_list)}")
+
+print(f"5: v_list={(v_list)}")
+print(f"5: id(v_list)={id(v_list)}")
+  -------------------------------
+1: v_list=[[1], [2], [3]]
+1: id(v_list)=2101192379336
+2: x_list=[]
+2: id(x_list)=2101221208648
+3: i=[1]
+3: id(i)=2101191594504
+2B: x_list=[[1]]
+2B: id(x_list)=2101221208648
+3: i=[2]
+3: id(i)=2101191595016
+2B: x_list=[[1], [2]]
+2B: id(x_list)=2101221208648
+3: i=[3]
+3: id(i)=2101192273352
+2B: x_list=[[1], [2], [3]]
+2B: id(x_list)=2101221208648
+4: x_list=[[1], [2], [3]]
+4: id(x_list)=2101221208648
+5: v_list=[[1], [2], [3]]
+5: id(v_list)=2101192379336
+  ++++++++++++++++++++++++++++++++++++++
+
+Aliases
+http://gestaltrevision.be/wiki/python/aliases
+
+
+print("------a = 5 : b = a----")
+a = 5
+
+# Create an alias identifier for this variable
+b = a
+
+# Observe how they refer to the same variable!
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+print(" ------1--------")
+print("------c = b : b = 3----")
+# Create another alias
+c = b
+
+# Now assign a new value to b!
+b = 3
+
+# And observe how a and c are still the same variable
+# But b is not
+print(a)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+print(f"id(c)={id(c)}")
+
+print(" -----2---------")
+print("------b = a : ----")
+b = a
+
+print(a,b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+print(" ------3--------")
+print("------b = 5 : ----")
+b = 5
+print(f"id(b)={id(b)}")
+# We used an assignment, but the value didn't actually change
+# So the alias remains unbroken
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+  ---------------------------------
+------a = 5 : b = a----
+id(a)=140704136133824
+id(b)=140704136133824
+ ------1--------
+  ------c = b : b = 3----
+5
+id(a)=140704136133824
+id(b)=140704136133760
+id(c)=140704136133824
+ -----2---------
+ ------b = a : ----
+5 5
+id(a)=140704136133824
+id(b)=140704136133824
+ ------3--------
+ ------b = 5 : ----
+id(b)=140704136133824
+id(a)=140704136133824
+id(b)=140704136133824
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+a = [5]
+
+# Create an alias identifier for this list
+b = a
+
+print(a, b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+
+# Now change the <list> b in-place
+b.append(1)
+
+# And observe how this also changes a
+# The alias is not broken by in-place operations
+print(a, b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}") 
+  ---------------------------------
+[5] [5]
+id(a)=2230346994184
+id(b)=2230346994184
+[5, 1] [5, 1]
+id(a)=2230346994184
+id(b)=2230346994184 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Create a <list>
+a = [5]
+
+# Create a new <list> with the same value
+b = list(a)
+
+# We now have two separate variables with identical but separate values
+print(a, b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+
+# Same with the full slice technique:
+b = a[:]
+print(a, b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+  -----------------------------------------
+5] [5]
+id(a)=2787963982344
+id(b)=2787965875400
+[5] [5]
+id(a)=2787963982344
+id(b)=2787965513160
+
+  +++++++++++++++++++++++++++++++++++++++++
+# Create <tuple>
+a = (5,)
+
+# Try to force a copy
+b = tuple(a)
+
+# It didn't work...
+print(a, b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+
+# Neither does this
+b = a[:]
+print(a, b)
+print(f"id(a)={id(a)}")
+print(f"id(b)={id(b)}")
+  ---------------------------------
+(5,) (5,)
+id(a)=2166520862280
+id(b)=2166520862280
+(5,) (5,)
+id(a)=2166520862280
+id(b)=2166520862280
+  +++++++++++++++++++++++++++++++++++++++
+v_list = [1, 2, 3]
+print(f"1: v_list={(v_list)}")
+print(f"1: id(v_list)={id(v_list)}")
+x_list=[]
+for i in v_list:
+    x_list.append(i)
+    i = i + 1
+    print(f"2: i={(i)}")
+    print(f"2: id(i)={id(i)}")
+print(f"3: x_list={(x_list)}")
+print(f"3: id(x_list)={id(x_list)}")
+
+print(f"4: v_list={(v_list)}")
+print(f"4: id(v_list)={id(v_list)}")
+  ----------------------------------
+1: v_list=[1, 2, 3]
+1: id(v_list)=2358038843912
+2: i=2
+2: id(i)=140704019020896
+2: i=3
+2: id(i)=140704019020928
+2: i=4
+2: id(i)=140704019020960
+3: x_list=[1, 2, 3]
+3: id(x_list)=2358068227528
+4: v_list=[1, 2, 3]
+4: id(v_list)=2358038843912
+  +++++++++++++++++++++++++++++++++++++++
+v_list = [[1],[2],[3]]
+print(f"1: v_list={(v_list)}")
+print(f"1: id(v_list)={id(v_list)}")
+x_list=[]
+for i in v_list:
+    x_list.append(i)
+    print(f"2: i={(i)}")
+    print(f"2: id(i)={id(i)}")
+print(f"3: x_list={(x_list)}")
+print(f"3: id(x_list)={id(x_list)}")
+
+print(f"4: v_list={(v_list)}")
+print(f"4: id(v_list)={id(v_list)}")
+  -------------------------------
+1: v_list=[[1], [2], [3]]
+1: id(v_list)=2809492556744
+2: i=[1]
+2: id(i)=2809463132680
+2: i=[2]
+2: id(i)=2809463133192
+2: i=[3]
+2: id(i)=2809492450760
+3: x_list=[[1], [2], [3]]
+3: id(x_list)=2809492746888
+4: v_list=[[1], [2], [3]]
+4: id(v_list)=2809492556744
+  ++++++++++++++++++++++++++++++++++++++

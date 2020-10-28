@@ -1,0 +1,33 @@
+#52 Python Tutorial for Beginners | Types of Variables					https://www.youtube.com/watch?v=RSQjxL5WRNM&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=56
+  ------------------------------------------
+Variable in oops:
+  1. Instance (inside init)
+  2. Class (static)--(outside / before init)
+
+namespace isan area where you create and store object/variable
+1. class namespace
+2. object/instance name \
+
+class Car:
+
+    def __init__():
+        self.mil=10
+        self.com="BMW"
+
+c1=Car()
+c2=Car()
+
+  ------------------------------
+class Car:
+    wheels=4
+
+    def __init__(self):
+        self.mil=10
+        self.com="BMW"
+
+c1=Car()
+c2=Car()
+
+print(c1.mil,c1.com,c1.wheels)
+
+ ------------------------------------

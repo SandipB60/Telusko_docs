@@ -1,0 +1,15 @@
+#42 Python Tutorial for Beginners | Anonymous Functions | Lambda					https://www.youtube.com/watch?v=hYzwCsKGRrg&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=46
+  -------------------------------
+f= lambda a: a*a
+result=f(5)
+print(result)
+25
+
+#m=lambda a,b: a+b
+
+f= lambda a: a*a
+m=lambda a,b: a+b
+result=f(m(3,4))
+print(result)
+49
+  -------------------------------

@@ -1,0 +1,189 @@
+class InstanceCounter():
+    count =0
+
+    def __init__(self, val):
+        self.val=val
+        InstanceCounter.count +=1
+
+    def set_val(self,newval):
+        self.val=newval
+
+    def get_val(self):
+        return self.val
+
+    def get_count(self):
+        return InstanceCounter.count
+
+    def iterate1(self, iter):
+        s=0
+        for i in range(iter):
+            InstanceCounter.count=InstanceCounter.count+i
+        return InstanceCounter.count
+
+    def meth1(self, x, y):
+        z=x+y+ InstanceCounter.get_val(self) + InstanceCounter.get_count(self)
+        print(f"x= {x} y= {y}  z= {z}")
+        print(f"x= {x} y= {y} InstanceCounter.get_val={InstanceCounter.get_val(self)} InstanceCounter.get_count= {InstanceCounter.get_count(self)} z= {z}")
+        return z*2
+
+a=InstanceCounter(9)
+
+print(f"a.get_val= {a.get_val()} a.get_count= {a.get_count()}")
+print(f"meth1 ={a.meth1(20,40)}")
+print(f"iterate1= {a.iterate1(4)}")
+print(f"InstanceCounter.count= {a.count}")
+
+  ++++++++++++++++++++++++++++++++++++++++++++++
+
+a.get_val= 9 a.get_count= 1
+x= 20 y= 40  z= 70
+x= 20 y= 40 InstanceCounter.get_val=9 InstanceCounter.get_count= 1 z= 70
+meth1 =140
+iterate1= 7
+InstanceCounter.count= 7
+  ++++++++++++++++++++++++++++++++++++++++++++++
+class InstanceCounter():
+    count =0
+
+    def __init__(self, val):
+        self.val=val
+        InstanceCounter.count +=1
+
+    def set_val(self,newval):
+        self.val=newval
+
+    def get_val(self):
+        return self.val
+
+    def get_count(self):
+        return InstanceCounter.count
+
+    def iterate1(self, iter):
+        s=0
+        for i in range(iter):
+            InstanceCounter.count=InstanceCounter.count+i
+        return InstanceCounter.count
+
+    def meth1(self, x, y):
+        z=x+y+ InstanceCounter.get_val(self) + InstanceCounter.get_count(self)
+        print(f"x= {x} y= {y}  z= {z}")
+        print(f"x= {x} y= {y} InstanceCounter.get_val={InstanceCounter.get_val(self)} InstanceCounter.get_count= {InstanceCounter.get_count(self)} z= {z}")
+        return z*2
+
+    def meth2(self):
+        a=10
+        b=20
+        c=a+b
+        return c
+
+    def call_all(self,x,y,iter):
+
+        const = 6
+        res1=InstanceCounter.count
+        res2=self.val
+        res3=self.get_val()
+        res4=self.get_count()
+        res5=self.iterate1(iter)
+        res6=self.meth1(x,y)
+        res7=self.meth2()
+        res8=const
+        return  (res1, res2, res3, res4, res5, res6, res7, res8)
+
+x=100
+y=200
+iter=10
+a=InstanceCounter(9)
+print(f"a.get_val= {a.get_val()} a.get_count= {a.get_count()}")
+print(f"meth1 ={a.meth1(x,y)}")
+print(f"iterate1= {a.iterate1(iter)}")
+print(f"InstanceCounter.count= {a.count}")
+print(f"meth2 = {a.meth2()}")
+ret1, ret2, ret3,ret4,ret5, ret6,ret7,ret8 = a.call_all(x,y,iter)
+print(f"ret1= {ret1} ret2 = {ret2} ret3={ret3} ret4={ret4} ret5={ret5} ret6={ret6} ret7={ret7} ret8={ret8}")
+
+  ++++++++++++++++++++++++++++++++++++++++++
+a.get_val= 9 a.get_count= 1
+x= 100 y= 200  z= 310
+x= 100 y= 200 InstanceCounter.get_val=9 InstanceCounter.get_count= 1 z= 310
+meth1 =620
+iterate1= 46
+InstanceCounter.count= 46
+meth2 = 30
+x= 100 y= 200  z= 400
+x= 100 y= 200 InstanceCounter.get_val=9 InstanceCounter.get_count= 91 z= 400
+ret1= 46 ret2 = 9 ret3=9 ret4=46 ret5=91 ret6=800 ret7=30 ret8=6
+  ++++++++++++++++++++++++++++++++++++++++++
+
+  +++++++++++++++++++++++Final below +++++++++++++++++++
+
+class InstanceCounter():
+    count =0
+
+    def __init__(self, val):
+        self.val=val
+        InstanceCounter.count +=1
+
+    def set_val(self,newval):
+        self.val=newval
+
+    def get_val(self):
+        return self.val
+
+    def get_count(self):
+        return InstanceCounter.count
+
+    def iterate1(self, iter):
+        s=0
+        for i in range(iter):
+            InstanceCounter.count=InstanceCounter.count+i
+        return InstanceCounter.count
+
+    def meth1(self, x, y):
+        z=x+y+ InstanceCounter.get_val(self) + InstanceCounter.get_count(self)
+        print(f"x= {x} y= {y}  z= {z}")
+        print(f"x= {x} y= {y} InstanceCounter.get_val={InstanceCounter.get_val(self)} InstanceCounter.get_count= {InstanceCounter.get_count(self)} z= {z}")
+        return z*2
+
+    def meth1B(self, x, y):
+        z=x+y+ self.get_val() + self.get_count()
+        print(f"x= {x} y= {y}  z= {z}")
+        print(f"x= {x} y= {y} self.get_val()={self.get_val()} self.get_count()= {self.get_count()} z= {z}")
+        return z*2
+
+    def meth2(self):
+        a=10
+        b=20
+        c=a+b
+        return c
+
+    def call_all(self,x,y,iter):
+
+        const = 6
+        res1=InstanceCounter.count
+        res2=self.val
+        res3=self.get_val()
+        res4=self.get_count()
+        res5=self.iterate1(iter)
+        res6=self.meth1(x,y)
+        res7=self.meth2()
+        res8=const
+        res9=InstanceCounter.meth1B(self,x,y)
+        return  (res1, res2, res3, res4, res5, res6, res7, res8, res9)
+
+x=100
+y=200
+iter=10
+newval=100
+a=InstanceCounter(9)
+a.set_val(newval)
+print(f"a.get_val= {a.get_val()} a.get_count= {a.get_count()}")
+print(f"meth1 ={a.meth1(x,y)}")
+print(f"meth1B ={a.meth1B(x,y)}")
+print(f"iterate1= {a.iterate1(iter)}")
+print(f"InstanceCounter.count= {a.count}")
+print(f"meth2 = {a.meth2()}")
+ret1, ret2, ret3,ret4,ret5, ret6,ret7,ret8,ret9 = a.call_all(x,y,iter)
+print(f"ret1= {ret1} ret2 = {ret2} ret3={ret3} ret4={ret4} ret5={ret5} ret6={ret6} ret7={ret7} ret8={ret8} ret9={ret9}")
+
+  +++++++++++++++++++++++Above below +++++++++++++++++++
+

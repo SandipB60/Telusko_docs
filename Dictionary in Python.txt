@@ -1,0 +1,86 @@
+Dictionary in Python					https://www.youtube.com/watch?v=2IsF7DEtVjg&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=8
+  +++++++++++++++++++++++++++++
+key and value
+data={1:'Navin',2:'Kiran',4:'Harsh'}
+print(data)
+print(data[1])
+data[2]='sandip'
+print(data[1])
+
+>>> data={1:'Navin',2:'Kiran',4:'Harsh'}
+>>> data
+{1: 'Navin', 2: 'Kiran', 4: 'Harsh'}
+>>> print(data[1])
+Navin
+>>> data[2]='sandip
+SyntaxError: EOL while scanning string literal
+>>> data[2]='sandip'
+>>> print(data[1])
+Navin
+>>> print(data[2])
+sandip
+>>> data
+{1: 'Navin', 2: 'sandip', 4: 'Harsh'}
+>>> 
+
+data.get(1)
+data.get(3)
+
+>>> data
+{1: 'Navin', 2: 'sandip', 4: 'Harsh'}
+>>> data.get(1)
+'Navin'
+>>> data.get(3)
+>>> data[3]
+Traceback (most recent call last):
+  File "<pyshell#40>", line 1, in <module>
+    data[3]
+KeyError: 3
+>>> data
+{1: 'Navin', 2: 'sandip', 4: 'Harsh'}
+>>> 
+data.get(1,'not found')
+KeyError: 3
+>>> data
+{1: 'Navin', 2: 'sandip', 4: 'Harsh'}
+>>> data.get(1,'not found')
+'Navin'
+>>> data.get(3,'not found')
+'not found'
+>>> 
+
+indx=[1,2,3,4]
+val=['sb','am h', 'sh hq']
+dct=dict(zip(indx,val))
+dct[4]='xxx'
+dct.pop(4)
+
+print(dct)
+dct.popitem()
+print(dct)
+
+del data[1]
+
+data={1:'Navin',2:'Kiran',4:'Harsh'}
+
+std={'sch1':data,
+     'sch2':{1:'baby',2:'asif',3:'babir amma'}
+     }
+print(std)
+
+prog={'JS':'Atom', 
+      'CS':'VS',
+      'Python':['Pycharm','Sublime'],
+       'Java':{'JSE':'Netbeans',
+                'JEE':'Eclipse'}
+      }
+
+print(prog)
+print(prog['Java'])
+print(prog['Java']['JEE'])
+
+print(prog['Python'])
+print(prog['Python'][1])
+
+
+

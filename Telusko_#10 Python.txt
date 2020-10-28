@@ -1,0 +1,67 @@
+#10 Python Tutorial for Beginners | Data Types in Python					https://www.youtube.com/watch?v=gCCVsvgR2KU&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=12
+  ++++++++++++++++++++++++++++++++++++++++
+none (int,float,complex (3+9j),bool(True =1, False=0)),
+string works as char
+
+ ---------------------
+numeric
+list
+tuple
+set
+string
+range
+dictionary
+
+upto range from list are of type sequence
+ ---------------------
+s=None
+print(s)
+print(type(s))
+None
+<class 'NoneType'
+ ---------------------
+a=5.6
+b=int(a)
+print(type(a))
+print(type(b))
+<class 'float'>
+<class 'int'>
+ ---------------------
+k=6
+c=complex(k)
+c
+
+k=6
+c=complex(k,a)
+c
+(6+5.6j)
+
+ ---------------------
+bl=k<a
+print(bl)
+print(type(bl))
+False
+<class 'bool'>
+
+print(int(True))
+ ---------------------
+range(3,10)
+np.arange(3,10)
+
+list(range(3,10))
+
+for a in range(3,10):
+    print(a)
+
+list(range(3,10,2))
+ ---------------------
+
+d={'navin':'Sansung','rahul':'Iphone','kiran':'Oneplus'}
+print(d)
+
+print(d.keys())
+print(d.values())
+ ---------------------
+d['rahul']
+d.get('rahul')
+ ---------------------

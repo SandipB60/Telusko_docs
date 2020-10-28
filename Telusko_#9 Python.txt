@@ -1,0 +1,66 @@
+#9 Python Tutorial for Beginners | More on Variables in Python					https://www.youtube.com/watch?v=_OZIAHg5i7M&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=11
+ +++++++++++++++++++++++++++++++++++
+sameaddress -->for below two bars a and b...memory efficient
+10 is value (in a box)...we tag with a,b,x,y,k etc
+
+garbage collection-->the value which is not tagged ..will be garbage collectd later
+
+python ... no constant is available...keep capital letter e.g.PI..3.14
+
+num=5
+id(num)
+a=10
+b=a
+id(b)
+140704072770224
+
+x=10
+y=x
+print(id(x))
+print(id(y))
+print(id(10))
+140704072770224
+140704072770224
+140704072770224
+
+x=11
+y=x
+print(id(x))
+print(id(y))
+print(id(11))
+140704072770256
+140704072770256
+140704072770256
+
+k=10
+print(id(k))
+140704072770224
+
+print(id(a))
+a=100
+print(id(a))
+print(id(b))
+
+140704072770224
+140704072773104
+140704072770224
+
+
+a=10
+print(id(a))
+a=100
+print(id(a))
+print(id(b))
+print(id(k))
+print(id(11))
+b=11
+print(id(b))
+print(id(10))
+140704072770224
+140704072773104
+140704072770256
+140704072770224
+140704072770256
+140704072770256
+140704072770224
+

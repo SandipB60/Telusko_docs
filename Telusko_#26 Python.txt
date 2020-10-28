@@ -1,0 +1,65 @@
+#26 Python Tutorial for Beginners | Array in Python					https://www.youtube.com/watch?v=6a39OjkCN5I&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=30
+  ---------------------------------
+array--> package for single dim array
+from array import *
+
+vals = array('i',[5,9,8,4,2])
+print(vals)
+
+vals.buffer_info()
+(2140452277712, 5) --> address and size
+
+vals.typecode
+i
+
+vals.reverse()
+
+
+print(vals)
+vals.reverse()
+print(vals)
+array('i', [2, 4, 8, 9, 5])
+array('i', [5, 9, 8, 4, 2])
+
+
+for i in vals:
+    print(i)
+
+for i in range(len(vals)):
+    print(vals[i])
+
+
+vals = array('u',['kan','sha','amr','asf','aks','prant'])
+print(vals)
+
+
+vals = array('u',['k','s','a','a','a','p'])
+print(vals)
+
+
+vals = array('i',[5,9,8,4,2])
+print(vals)
+
+newarr=array(vals.typecode, (a for a in vals))
+print(newarr)
+array('i', [5, 9, 8, 4, 2])
+
+newarr=array(vals.typecode, (a*a for a in vals))
+print(newarr)
+array('i', [25, 81, 64, 16, 4])
+
+i=0
+while i < (len(vals)):
+      print(vals[i],end="")
+      i=i+1
+
+59842
+
+
+
+
+
+
+
+
+

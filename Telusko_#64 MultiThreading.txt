@@ -1,0 +1,136 @@
+#64 Python Tutorial for Beginners | MultiThreading					https://www.youtube.com/watch?v=GqHLztqy0PU&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=69
+  --------------------------
+one big task is broken in small process and then each small process is broken into multiple threads.... for multitasking... using multicore cpu.
+By default, every execution has one thread (Main thread).
+  -------------------
+Step 1. 
+How to create 2 different threads...call "Thread" a super calass.."from threading import *"...."class Hello(Thread):"
+
+Step 2.
+create "def run(self):" as it is in "Thread" super class.
+
+Step 3.
+Use "t1.start()" method instead on "t1.run()" method because "t1.start()" method runs 
+"t1.run()" method in the back ground.
+t1=Hello()
+t2=Hi()
+
+t1.start()
+t2.start()
+Process is given "schedule"/time to complete the job.
+
+Note:
+After you use start, (a.main thred and b. t1.run & t2.run) becomes 3 threads (a.main thred, b. t1.run and t2.run)
+
+Step 4.
+You may use "from time import sleep" to make the proces sleep for sometime.
+
+Note:
+Collision when two threads work at same time. you can use sleep(.2)  between t1.start() ans t2.(start) to avoid "collision".
+
+Step 5. To complete t1.run and t2.run() bwfore "maain thread" for "print("Bye")" at the end, 
+use 
+t1.join()
+t2.join()
+print("Bye")
+  ++++++++++++++++++++++++++++++++++++++++++
+  -------------------
+Collision when two threads work at same time
+
+2a and 2b are attached with main thread
+1.Main Thread
+2a. T1 thread
+2b. T2 thread
+
+after "start" , three threads
+1.Main Thread
+2. T1 thread
+3. T2 thread
+
+## print("bye") is executed by "main" process, so it came in between
+##t1.join() & t2.join() -holds print("bye")/main process
+
+
+ ++++++++++++++++++++++++++++++++++++++
+
+from threading import *
+from time import *
+#n=500
+class Hello(Thread):
+    def run(self):
+        for i in range (5):
+            print(f"{i}-Hello")
+            sleep(1)
+
+class Hi(Thread):
+    def run(self):
+        for i in range (5):
+            print(f"{i}-Hi")
+            sleep(1)
+
+t1=Hello()
+t2=Hi()
+
+t1.start()
+#sleep(.2)
+t2.start()
+
+print("Bye")
+
+ --------------------------
+0-Hello
+0-HiBye
+
+1-Hello
+1-Hi
+2-Hello
+2-Hi
+3-Hello
+3-Hi
+4-Hello
+4-Hi
+  --------------------------------------
+  ++++++++++++++++++++++++++++++++++++++++
+##t1.join() & t2.join() -holds print("bye")/main process
+
+
+from threading import *
+from time import *
+#n=500
+class Hello(Thread):
+    def run(self):
+        for i in range (5):
+            print(f"{i}-Hello")
+            sleep(1)
+
+class Hi(Thread):
+    def run(self):
+        for i in range (5):
+            print(f"{i}-Hi")
+            sleep(1)
+
+t1=Hello()
+t2=Hi()
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+
+print("Bye")
+
+  -----------------------
+0-Hello
+0-Hi
+1-Hello1-Hi
+
+2-Hello2-Hi
+
+3-Hello3-Hi
+
+4-Hello
+4-Hi
+Bye
+  ++++++++++++++++++++++++++
+

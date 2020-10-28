@@ -1,0 +1,85 @@
+#65 Python Tutorial for Beginners | File handling					https://www.youtube.com/watch?v=aequTxAvQq4&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=70
+  ------------------------
+
+Id: 007
+Name: Sandip Biswas
+Age: 16
+  +++++++++++++++++++++++++++++++
+print("------------1-----------")
+f=open("D:/Sandip/Study/Python/Python_oops/Telusko/Telusko_files/File_IO.txt","r")
+#print(f.read())
+print("-----------2------------")
+print(f.readline(),end="")
+print(f.readline(),end="")
+
+ ----------------------------------
+------------1-----------
+-----------2------------
+Id: 007
+Name: Sandip Biswas
+  +++++++++++++++++++++++++++++++
+ print("------------1-----------")
+f=open("D:/Sandip/Study/Python/Python_oops/Telusko/Telusko_files/File_IO.txt","r")
+#print(f.read())
+print("-----------2------------")
+print(f.readline(3),end="")
+  -------------------
+------------1-----------
+-----------2------------
+Id:
+  -----------------------------
+  +++++++++++++++++++++++++
+print("------------1-----------")
+fw=open("D:/Sandip/Study/Python/Python_oops/Telusko/Telusko_files/File_IO_write.txt","w")
+fw.write("My name is Sandip. And I am a good boy")
+fa=open("D:/Sandip/Study/Python/Python_oops/Telusko/Telusko_files/File_IO_write.txt","a")
+fa.write("I need sleep")
+
+  ++++++++++++++++++++++++++++++++
+
+f=open("D:/Sandip/Study/Python/Python_oops/Telusko/Telusko_files/File_IO.txt","r")
+rd= f.read()
+fw=open("D:/Sandip/Study/Python/Python_oops/Telusko/Telusko_files/File_IO_write2.txt","w")
+fw.write(" this is my new fil \n\n")
+fw.close()
+fa=open("D:/Sandip/Study/Python/Python_oops/Telusko/Telusko_files/File_IO_write2.txt","a")
+fa.write(rd)
+fa.close()
+f.close()
+
+  ----------------------------
+ this is my new fil 
+
+Id: 007
+Name: Sandip Biswas
+Age: 16
+  ++++++++++++++++++++++++++++++++
+f=open("D:/Sandip/Study/Python/Python_oops/Telusko/Telusko_files/File_IO.txt","r")
+fw=open("D:/Sandip/Study/Python/Python_oops/Telusko/Telusko_files/File_IO_write3AA.txt","w")
+fw.write("this is my new file .....File_IO_write3AA \n")
+fw.close()
+fa=open("D:/Sandip/Study/Python/Python_oops/Telusko/Telusko_files/File_IO_write3AA.txt","a")
+fa.write("\nstart loop\n")
+for line in f:
+    fa.write(line)
+fa.write("\n\nend of copying through loop")
+fa.close()
+f.close()
+  ---------------
+this is my new file .....File_IO_write3AA 
+
+start loop
+Id: 007
+Name: Sandip Biswas
+Age: 16
+
+end of copying through loop
+  +++++++++++++++++++++++++++++++++
+
+fr=open("D:/Sandip/Study/Python/Python_oops/Telusko/Telusko_files/ADHAR_2.JPG","rb")
+fw=open("D:/Sandip/Study/Python/Python_oops/Telusko/Telusko_files/File_IO_write3AA.JPG","wb")
+for data in fr:
+    print(data)
+    #fw.write(data)
+  ++++++++++++++++++++++++++++++++++++++++++++++++
+

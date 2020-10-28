@@ -1,0 +1,51 @@
+#19 Python Tutorial for Beginners | If Elif Else Statement in Python					https://www.youtube.com/watch?v=PqFKRqpHrjw&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=22
+  -----------------------
+
+x=8
+r=x%2
+
+if r == 0:
+   print("Enen")
+else:
+   print("Odd")
+
+print("Bye")
+  ---------------------------
+
+x=8
+r=x%2
+
+if r == 0:
+   print("Enen")
+   if x >= 5:
+      print("x >= 5")
+   else  :
+      print("x < 5")
+else:
+   print("Odd")
+
+print("Bye")
+Enen
+x >= 5
+Bye
+
+  ---------------------------
+x=2
+
+if x==1:
+   print("One")
+elif x==2:
+   print("2")
+elif x==3:
+   print("3")
+elif x==4:
+   print("4")
+else:
+   print("not 1234")
+  ---------------------------
+  =========================== 
+
+
+
+
+

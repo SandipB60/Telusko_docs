@@ -1,0 +1,27 @@
+#21 Python Tutorial for Beginners | For Loop in Python					https://www.youtube.com/watch?v=0ZvaDa8eT5s&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=24
+  ----------------------------------
+
+x=['Navin',2,5]
+for i in x:
+     print("i =",i)
+
+x='sandip biswas'
+for i in x:
+     print("i =",i)
+
+
+
+x={1:'sandip',2:'Biswas',3:'puttus',4:'shah',5:'Baby'}
+for i in x:
+     print("i =",i)
+
+
+
+for i in range(20,11,-2):
+    print("i =", i)
+
+
+for i in (range(1,100)):
+    if i%5==0:
+       print("i =", i)
+

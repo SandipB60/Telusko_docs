@@ -1,0 +1,35 @@
+#3 Python Tutorial for Beginners | Getting Started with Python
+https://www.youtube.com/watch?v=DWgzHbglNIo&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=4
+ +++++++++++++++++++++++++++++++++
+>>> 5/2
+2.5
+>>> 5//2
+2
+>>> 2*2*2
+8
+>>> 2**3
+8
+>>> 
+>>> 10//3
+3
+>>> 10%3
+1
+>>> 
+>>> print("navin's laptop")
+navin's laptop
+>>> 
+>>> print('navin''s'' laptop')
+navins laptop
+>>> print('navin "laptop"')
+navin "laptop"
+>>> print('navin\'s "laptop"')
+navin's "laptop"
+
+>>> 'navin-' *18
+'navin-navin-navin-navin-navin-navin-navin-navin-navin-navin-navin-navin-navin-navin-navin-navin-navin-navin-'
+>>> print('sandip \n biswas')
+sandip 
+ biswas
+>>> print(r'sandip \n biswas')
+sandip \n biswas
+  --------------------------------

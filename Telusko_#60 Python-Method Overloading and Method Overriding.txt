@@ -1,0 +1,95 @@
+#60 Python Tutorial for Beginners | Method Overloading and Method Overriding					https://www.youtube.com/watch?v=CcTzTuIsoFk&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=64
+  ------------------------------
+Method overloading: is more than 1 methods with same name in a call (may be) with different numbers or types of parametres.
+Method overloading is not there in python.
+
+Method overriding: More than 1 method with same name and type of parameters in a class. It can be in master and child classes as inheritance.
+If both the  master and child classes have exactly same method , the child class method will override the method of master class method.
+  ---------------------------------------
+#Method overloading
+class Students:
+
+    def __init__(self, m1,m2,m3):
+        self.m1=m1
+        self.m2=m2
+        self.m3=m3
+
+    def sum( m1=None, m2=None, m3=None):
+        if m1 != None and m2 != None and m3 != None:
+             s=m1+m2+m3
+        elif m1 != None and m2 != None :
+             s=m1+m2
+        else:
+            s=m1
+
+        return s
+
+print('------1--------')
+s1=Students.sum(5,9,6)
+print(s1)
+print('------2--------')
+s1=Students.sum(5,9)
+print(s1)
+print('------3--------')
+s1=Students.sum(5)
+print(s1)
+print('------4--------')
+  --------------------------
+------1--------
+20
+------2--------
+14
+------3--------
+5
+------4--------
+  ++++++++++++++++++++++++++++++++++++++
+#Method overriding
+class A:
+    def __init__(self):
+        print("class A-init")
+
+    def feature_common(self):
+        return ("class A - Feature common working")
+
+    def feature1(self):
+        print("class A - Feature 1 working")
+
+    def feature2(self):
+        print("class A - Feature 2 working")
+
+class B(A):
+
+    def __init__(self):
+        print("class B-init")
+
+    def feature_common(self):
+        s=super().feature_common()
+        print(s)
+        print ("class B - Feature common working")
+        return s
+
+    def feature3(self):
+        print("class B - Feature 3 working")
+
+    def feature4(self):
+        print("class B - Feature 4 working")
+
+
+
+
+print(" -----------A below--------")
+a1=A()
+a1.feature_common()
+print(" -----------B below--------")
+b1=B()
+b1.feature_common()
+print(" ---------------------------")
+  ---------------------------
+ -----------A below--------
+class A-init
+ -----------B below--------
+class B-init
+class A - Feature common working
+class B - Feature common working
+ ---------------------------
+ ++++++++++++++++++++++++++++++++++++++

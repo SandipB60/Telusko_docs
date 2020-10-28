@@ -1,0 +1,5 @@
+#17 Python Tutorial for Beginners | Working with PyCharm | Run | Debug | Trace | py file					https://www.youtube.com/watch?v=akcEaEH91gI&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=20
+  --------------------------------
+command prompt
+cd D:\Sandip\Study\Python\Python_oops\Telusko\code_to_exec
+python Telusko_#17_v001.py

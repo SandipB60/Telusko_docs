@@ -1,0 +1,67 @@
+#4 Python Tutorial for Beginners | Variables in Python					https://www.youtube.com/watch?v=TqPzwenhMj0&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=5
+ ++++++++++++++++++++++++++++++++++++
+strings in python is immutable.
+
+
+ ++++++++++++++++++++++++++++++++++++
+>>> x=2
+>>> x+3
+5
+>>> y=3
+>>> x+y
+5
+>>> _
+5
+>>> name='youtube'
+>>> name
+'youtube'
+>>> name+'rocks'
+'youtuberocks'
+>>> 
+>>> name
+'youtube'
+>>> name[0]
+'y'
+>>> name[1]
+'o'
+>>> 
+>>> name[-0]
+'y'
+>>> name[-1]
+'e'
+>>> 
+>>> name[0:2]
+'yo'
+>>> name[1:4]
+'out'
+>>> 
+>>> name[1:]
+'outube'
+>>> 
+>>> name[:4]
+'yout'
+>>> 
+>>> name[3:10]
+'tube'
+>>> 
+>>> name[0:3]='my'
+Traceback (most recent call last):
+  File "<pyshell#69>", line 1, in <module>
+    name[0:3]='my'
+TypeError: 'str' object does not support item assignment
+>>> loc.name[0:3]='my'
+Traceback (most recent call last):
+  File "<pyshell#70>", line 1, in <module>
+    loc.name[0:3]='my'
+NameError: name 'loc' is not defined
+>>> 
+########################strings in python is immutable.
+>>> 'my'+name[3:6]
+'mytub'
+>>> 
+>>> len(name)
+7
+>>> name
+'youtube'
+>>> 
+

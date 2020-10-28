@@ -1,0 +1,68 @@
+#29 Python Tutorial for Beginners | Ways of Creating Arrays in Numpy					https://www.youtube.com/watch?v=NYPKbmE0H6E&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=33
+  ------------------------------------
+different ways to create an array:
+array()
+linespace()  -->arr=linspace(0,30,10)...start, end, number of parts (by default 50)
+logspace() -->arr=linspace(0,30,10)...start, end, number of parts based on log (10 raise to 1 to 30)
+arange() --> arr=arange(0,10,2)..start, end, steps
+zeros()
+ones()
+
+from numpy import *
+arr=array([1,2,3,4,5.5])
+print(arr)
+print(arr.dtype)
+
+arr=array([1,2,45,75,93,79],int)
+print(arr)
+print(arr.dtype)
+
+arr=array([1,2,3,4,5.5],int)
+print(arr)
+print(arr.dtype)
+
+  -----------------------------
+from numpy import *
+arr=array([1,2,3,4,5.5])
+print(arr)
+print(arr.dtype)
+
+arr=array([1,2,45,75,93,79],int)
+print(arr)
+print(arr.dtype)
+
+arr=array([1,2,3,4,5.5],int)
+print(arr)
+print(arr.dtype)
+  ------------------------
+from numpy import *
+
+arr=linspace(0,30,10)
+print(arr)
+  ------------------------
+from numpy import *
+arr=logspace(1,10,5)
+print(arr)
+
+[1.00000000e+01 1.77827941e+03 3.16227766e+05 5.62341325e+07
+ 1.00000000e+10]
+  ------------------------
+from numpy import *
+arr=zeros(5)
+print(arr)
+
+[0. 0. 0. 0. 0.]
+  ------------------------
+from numpy import *
+arr=ones(5)
+print(arr)
+
+[1. 1. 1. 1. 1.]
+
+from numpy import *
+arr=ones(5,int)
+print(arr)
+[1 1 1 1 1]
+  ------------------------
+
+

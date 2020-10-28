@@ -1,0 +1,183 @@
+#62 Python Tutorial for Beginners | Generators					https://www.youtube.com/watch?v=mziIj4M_uwk&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=67
+  ----------------------------------
+"yield" gives the next value...(that you need in while loop)
+you need an iterator or array in for loop
+
+instead of fetching the entire array in memory, you can you one at a time using generator
+  ----------------------------------
+https://docs.python.org/3/tutorial/classes.html
+  -----------------------------------------------
+def topten():
+    yield 5
+
+values=topten()
+print(f'values= {values}')
+print(f'values.__next__() = {values.__next__()}')
+  ----------------------
+values= <generator object topten at 0x0000029A75076B48>
+values.__next__() = 5
+  +++++++++++++++++++++++++++++++++++++++
+def topten():
+    yield 5
+    yield 6
+    yield 7
+    yield 8
+
+values=topten()
+print(f'values= {values}')
+print(f'values.__next__() 5= {values.__next__()}')
+print(f'values.__next__() 6= {values.__next__()}')
+print(f'values.__next__() 7= {values.__next__()}')
+print(f'values.__next__() 8= {values.__next__()}')
+print(f'values.__next__() 9= {values.__next__()}')
+print(f'values.__next__() 10= {values.__next__()}')
+  -------------------------
+values= <generator object topten at 0x0000028606A56AC8>
+values.__next__() 5= 5
+values.__next__() 6= 6
+values.__next__() 7= 7
+values.__next__() 8= 8
+Traceback (most recent call last):
+  File "D:/Sandip/Study/Python/Python_oops/Telusko/code_to_exec/Telusko_gen_002.py", line 14, in <module>
+    print(f'values.__next__() 9= {values.__next__()}')
+StopIteration
+  +++++++++++++++++++++++++++++++++
+def topten():
+    yield 5
+    yield 6
+    yield 7
+    yield 8
+
+values=topten()
+
+for i in values:
+    print(f"i: {i}")
+  -----------------------------
+i: 5
+i: 6
+i: 7
+i: 8
+  +++++++++++++++++++++++++++++++++
+
+def topten(m):
+    n =1
+    while n <= m:
+        yield n*n
+        n+=1
+
+
+values=topten(10)
+for i in values:
+    print(f"i: {i}")
+  ------------------------
+i: 1
+i: 4
+i: 9
+i: 16
+i: 25
+i: 36
+i: 49
+i: 64
+i: 81
+i: 100
+  ++++++++++++++++++++++++++++++++
+## below does not work...we need iterator/ or array ... etc
+def topten(m):
+    n =1
+    while n <= m:
+        x= n*n
+        n+=1
+        return x
+
+
+values=topten(10)
+for i in 10:
+    print(f"i: {i}")
+  --------------------------
+Traceback (most recent call last):
+  File "D:/Sandip/Study/Python/Python_oops/Telusko/code_to_exec/gen.py", line 10, in <module>
+    for i in 10:
+TypeError: 'int' object is not iterable
+  ++++++++++++++++++++++++++++++++
+def topten():
+    yield 5
+    yield 6
+    yield 7
+    yield 8
+    yield 69
+    yield 89
+
+values=topten()
+print(f'values= {values}')
+for i in values:
+    print(f'i= {i}')
+ --------------------------
+values= <generator object topten at 0x0000018E0F97D448>
+i= 5
+i= 6
+i= 7
+i= 8
+i= 69
+i= 89
+ +++++++++++++++++++++++++++
+
+class Names:
+    def __init__(self,data):
+        self.data=data
+    def reverse(self):
+        for index in range(len(self.data) - 1, -1, -1):
+            yield (self.data[index])
+
+data="Sandip Biswas"
+a=Names(data)
+print(a.reverse())
+for i in a.reverse():
+    print(f"i= {i}")
+  --------------------------------
+<generator object Names.reverse at 0x0000026D1F8C6AC8>
+i= s
+i= a
+i= w
+i= s
+i= i
+i= B
+i=  
+i= p
+i= i
+i= d
+i= n
+i= a
+i= S
+ +++++++++++++++++++++++++++++++++
+print(f"sum(i*i for i in range(10)) = {sum(i*i for i in range(10))}")
+sum(i*i for i in range(10)) = 285
+ +++++++++++++++++++++++++++++++++
+xvec=[10,20,30]
+yvec=[7,5,3]
+for x,y in zip(xvec,yvec):
+    print(x,y)
+print(f"sum(x*y for x,y in zip(xvec,yvec))= {sum(x*y for x,y in zip(xvec,yvec))}")
+
+10 7
+20 5
+30 3
+sum(x*y for x,y in zip(xvec,yvec))= 260
+ +++++++++++++++++++++++++++++++++
+page="hhfhfhjgjgjgjgjyuygjvbvjvvvkj"
+
+unique_words= set(word for line in page for word in line.split())
+print(f"unique_words = {unique_words}")
+
+unique_words = {'y', 'f', 'j', 'k', 'g', 'v', 'h', 'b', 'u'}
+ ++++++++++++++++++++++++++++++++++++++++
+
+graduates={"name":"Sandip",
+            "gps" : 6.23}
+
+
+valedictorian = max((student.gps, student.name) for student in graduates)
+
+ ++++++++++++++++++++++++++++++++++++++++
+
+
+

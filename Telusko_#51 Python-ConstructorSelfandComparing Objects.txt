@@ -1,0 +1,91 @@
+#51 Python Tutorial for Beginners | Constructor, Self and Comparing Objects					https://www.youtube.com/watch?v=ic6wdPxcHc0&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=55
+  -----------------------
+self points to current instance
+
+
+  ----------------------
+class Computer():
+    pass
+
+c1 = Computer()
+c2 = Computer()
+
+print(id(Computer()))
+print(id(c1))
+print(id(c2))
+ --------
+2343431910152
+2343431910024
+2343431910088
+ -----------------------
+class Computer():
+    pass
+
+c1 = Computer()
+c2 = Computer()
+
+print(id(Computer()))
+print(id(c1))
+print(id(c2))
+ --------
+3034709635912
+3034709635784
+3034709635848
+ -----------------------
+class Computer():
+      def __init__(self):
+          self.name="Navin"
+          self.age=28
+       def update(self):
+           self.age=30
+       
+c1 = Computer()
+c2 = Computer()
+
+print(f"c1.name= {c1.name} c1.age= {c1.age}")
+print(f"c2.name= {c2.name} c2.age= {c2.age}")
+
+c1.update()
+
+print(f"c1.name= {c1.name} c1.age= {c1.age}")
+print(f"c2.name= {c2.name} c2.age= {c2.age}")
+  ---------------------------
+c1.name= Navin c1.age= 28
+c2.name= Navin c2.age= 28
+c1.name= Navin c1.age= 30
+c2.name= Navin c2.age= 28
+  -----------------------------------------
+
+class Computer():
+    def __init__(self):
+        self.name = "Navin"
+        self.age = 28
+
+    def update(self):
+        self.age = 30
+    def compare(self,other):
+        if self.age==other.age:
+            print(f" Self: {self} is same as other:{other}")
+        else:
+            print(f" Self: {self} is not same as other:{other}")
+
+c1 = Computer()
+c2 = Computer()
+
+print(f"c1.name= {c1.name} c1.age= {c1.age}")
+print(f"c2.name= {c2.name} c2.age= {c2.age}")
+
+c1.update()
+
+print(f"c1.name= {c1.name} c1.age= {c1.age}")
+print(f"c2.name= {c2.name} c2.age= {c2.age}")
+
+c1.compare(c2)
+  -------------
+c1.name= Navin c1.age= 28
+c2.name= Navin c2.age= 28
+c1.name= Navin c1.age= 30
+c2.name= Navin c2.age= 28
+ Self: <__main__.Computer object at 0x0000029FA9523BC8> is not same as other:<__main__.Computer object at 0x0000029FA9523C08>
+
+  -------------------------------------------------

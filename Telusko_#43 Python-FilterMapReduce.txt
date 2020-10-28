@@ -1,0 +1,45 @@
+#43 Python Tutorial for Beginners | Filter Map Reduce					https://www.youtube.com/watch?v=kj850Y8y8FI&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=47
+  ----------------------------------------------------
+1. filter
+2. map
+3. reduce
+
+ ----------------------------------------
+  -----------------filter below------------------
+def is_even(n):
+    return n%2==0
+
+nums=[3,2,6,8,4,6,2,9]
+result = list(filter(is_even,nums))
+print(result)
+[2, 6, 8, 4, 6, 2]
+ 
+result = list(filter(lambda n:n%2==0, nums))
+print(result)
+
+[2, 6, 8, 4, 6, 2]
+   ----------------------------
+ ------------------map below-----------------
+def update():
+    return n+2
+
+#double = list(map(update(), result)) ##wrong
+#print(double)
+  
+double = list(map(lambda a:a*2, result))
+print(double)
+[4, 8, 10, 6, 8, 4]
+  ------------------reduce below-----------------
+
+from functools import reduce
+
+def add_all(a,b):
+    return a+b
+
+sum=reduce(add_all,double)
+print(sum)
+
+sum=reduce(lambda a,b:a+b,double)
+print(sum)
+
+ ----------------------------------------

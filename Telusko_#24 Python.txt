@@ -1,0 +1,11 @@
+#24 Python Tutorial for Beginners | For Else in Python					https://www.youtube.com/watch?v=38svC3U7hVo&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=28
+  -----------------------------------------
+nums = [11, 16, 18, 21, 26]
+
+for num in nums:
+    if num % 5 == 0:
+        print(num, " is divisible by ", num)
+        break
+else:
+    print("not found")
+  --------------------------

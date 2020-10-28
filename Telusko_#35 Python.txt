@@ -1,0 +1,27 @@
+#35 Python Tutorial for Beginners | Keyworded Variable Length Arguments in Python | **kwargs					https://www.youtube.com/watch?v=kB829ciAXo4&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=39
+  ---------------------------
+
+def person(name, **data):
+    print(name)
+    print(data)
+
+
+person('navin',28, "mumbai", 987655)
+navin
+(28, 'mumbai', 987655
+
+person('navin',age=28, city="mumbai", mob=987655)
+
+  ----------------------------------------
+def person(name, **data):
+    print(name)
+    for key,name in data.items():
+        print(key,name)
+
+person('navin',age=28, city="mumbai", mob=987655)
+navin
+age 28
+city mumbai
+mob 987655
+  ----------------------------------------
+

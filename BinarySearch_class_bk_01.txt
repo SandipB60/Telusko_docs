@@ -1,0 +1,132 @@
+class class_wrap_binr_srch:
+        glow=0
+        cnt=1
+        gupp = 14
+
+        def __init__(self,srch,arr):
+            self.srch=srch
+            self.arr=arr
+            low=0
+            upp=len(arr)
+            inter_low = 0
+            inter_upp = len(arr)
+
+        def print_vals(self,tag, cnt, srch, low, upp, mid0, amid0, midl, amidl, midr, amidr, arr):
+            print(f"low={low} , upp={upp}")
+            print(f"deb-{tag}:cnt={cnt}: srch={srch}, low={low},upp={upp},mid0={mid0}, midl={midl}, midr={midr}, len(arr)={len(arr)} arr={arr}")
+            if (low < 0 or low >= len(arr) + 1) or (upp < 0 or upp >= len(arr) + 1):
+                print(f"deb-if: srch={srch}, arr[low]=xxxx,arr[upp-1]=xxx,,arr[mid0] ={amid0}, arr[midl]={amidl}, arr[mid2]={amidr}\n")
+            else:
+                print(f"deb-else: srch={srch}, arr[low]={arr[low]},arr[upp-1]= {arr[upp - 1]},arr[mid0] ={amid0}, arr[midl]={amidl}, arr[midr]={amidr}\n")
+
+        def checkl(self,low, upp):
+            if (low >= 0 or low <= len(arr) - 1) or (upp >= 0 or low <= len(upp) - 1):
+                return True
+            else:
+                print("need break")
+                return False
+
+        def binr_srch(self,srch, low, upp, arr):
+            print(" ===================================================================")
+            if (class_wrap_binr_srch.glow >= 0 or class_wrap_binr_srch.glow <= len(arr) - 1) or (class_wrap_binr_srch.gupp >= 0 or class_wrap_binr_srch.gupp <= len(arr) - 1):
+                print(f"start-glow={class_wrap_binr_srch.glow} gupp={class_wrap_binr_srch.gupp} arr[glow]={arr[class_wrap_binr_srch.glow]} arr[gupp-1]={arr[class_wrap_binr_srch.gupp - 1]}")
+            else:
+                print(f"start-glow={class_wrap_binr_srch.glow} gupp={class_wrap_binr_srch.gupp} arr[glow]=xxxx arr[gupp-1]=xxxx")
+
+            while class_wrap_binr_srch.glow >= 0 or class_wrap_binr_srch.gupp < len(arr):
+                class_wrap_binr_srch.cnt = class_wrap_binr_srch.cnt + 1
+                #if not class_wrap_binr_srch.checkl(class_wrap_binr_srch.glow, class_wrap_binr_srch.gupp):
+                 #   break
+                if (class_wrap_binr_srch.gupp - class_wrap_binr_srch.glow) % 2 == 1:
+                    mid0 = int((class_wrap_binr_srch.gupp - class_wrap_binr_srch.glow) / 2)
+                    imid0 = class_wrap_binr_srch.glow + mid0
+
+                    if abs(upp - low) == 2 and (arr[imid0] != srch) or ((upp == low) and (arr[imid0] != srch)):
+                        print(f"mid0=srch-0::srch: {srch} not in {arr}")
+                        break
+                    if (upp == (low + 1)) and (arr[imid0] != srch):
+                        print(f"mid0=srch-0::srch: {srch} not in {arr}")
+                        break
+
+                    if arr[imid0] == srch:
+                        print(f"got {srch} : 1 at {mid0}")
+                        class_wrap_binr_srch.print_vals("mid0=srch-00", class_wrap_binr_srch.cnt, srch, low, upp, imid0, arr[imid0], 999, 999, 999, 999, arr)
+                        break
+                    elif arr[imid0] < srch:
+                        class_wrap_binr_srch.print_vals("srch>mid0-A", class_wrap_binr_srch.cnt, srch, low, upp, imid0, arr[imid0], 999, 999, 999, 999, arr)
+                        class_wrap_binr_srch.glow = class_wrap_binr_srch.glow + mid0
+                        class_wrap_binr_srch.gupp = class_wrap_binr_srch.gupp
+                        low = class_wrap_binr_srch.glow
+                        upp = class_wrap_binr_srch.gupp
+                        if upp - low == 2:
+                            if arr[int((upp + low) / 2)] == srch:
+                                print(f"got {srch} AA: at {int((upp + low) / 2)}")
+                                break
+                            else:
+                                print(f"srch={srch} is not in {arr}")
+                                break
+                        class_wrap_binr_srch.print_vals("srch>mid0-B", class_wrap_binr_srch.cnt, srch, low, upp, imid0, arr[imid0], 999, 999, 999, 999, arr)
+                        class_wrap_binr_srch.binr_srch(srch, low, upp, arr)
+                    else:
+                        class_wrap_binr_srch.print_vals("mid0<srch-C", class_wrap_binr_srch.cnt, srch, low, upp, imid0, arr[imid0], 999, 999, 999, 999, arr)
+                        class_wrap_binr_srch.glow = class_wrap_binr_srch.glow
+                        class_wrap_binr_srch.gupp = class_wrap_binr_srch.gupp - mid0 - 0
+                        low = class_wrap_binr_srch.glow
+                        upp = class_wrap_binr_srch.gupp
+                        class_wrap_binr_srch.print_vals("mid0<srch-D", class_wrap_binr_srch.cnt, srch, low, upp, imid0, arr[imid0], 999, 999, 999, 999, arr)
+                        class_wrap_binr_srch.binr_srch(srch, low, upp, arr)
+                else:
+                    midl = int((class_wrap_binr_srch.gupp - class_wrap_binr_srch.glow) / 2) - 1
+                    midr = int((class_wrap_binr_srch.gupp - class_wrap_binr_srch.glow) / 2)
+                    print(f"midl={midl} midr={midr}")
+                    imidl = class_wrap_binr_srch.glow + midl
+                    imidr = class_wrap_binr_srch.glow + midr
+                    if abs(upp - low) == 2 and (arr[imidl] != srch and arr[imidr] != srch):
+                        print(f"midl&r =srch-0A::srch: {srch} not in {arr}")
+                        break
+                    if (arr[imidl] != srch or arr[imidr] != srch) and ((upp == (low + 1))):
+                        print(f"midl&r =srch-0B::srch: {srch} not in {arr}")
+                        break
+
+                    if (srch == arr[imidl]) or srch == arr[imidr]:
+                        if srch == arr[imidl]:
+                            print(f"got {srch} at: {imidl}")
+                            class_wrap_binr_srch.print_vals("midl&r =srch-00", class_wrap_binr_srch.cnt, srch, low, upp, 999, 999, imidl, arr[imidl], imidr,
+                                       arr[imidr], arr)
+                            break
+                        elif srch == arr[imidr]:
+                            print(f"got {srch} at:  {imidr}")
+                            class_wrap_binr_srch.print_vals("midl&r =srch-00", class_wrap_binr_srch.cnt, srch, low, upp, 999, 999, imidl, arr[imidl], imidr,
+                                       arr[imidr], arr)
+                            break
+                    elif srch > arr[imidr]:
+                        class_wrap_binr_srch.print_vals("srch>midr-A", class_wrap_binr_srch.cnt, srch, low, upp, 999, 999, imidl, arr[imidl], imidr, arr[imidr], arr)
+                        class_wrap_binr_srch.glow = class_wrap_binr_srch.glow + midr + 0
+                        class_wrap_binr_srch.gupp = class_wrap_binr_srch.gupp
+                        low = class_wrap_binr_srch.glow
+                        upp = class_wrap_binr_srch.gupp
+                        class_wrap_binr_srch.print_vals("srch>midr-B", class_wrap_binr_srch.cnt, srch, low, upp, 999, 999, imidl, arr[imidl], imidr, arr[imidr], arr)
+                        class_wrap_binr_srch.binr_srch(srch, low, upp, arr)
+                    else:
+                        class_wrap_binr_srch.print_vals("midl<srch-C", class_wrap_binr_srch.cnt, srch, low, upp, 999, 999, imidl, arr[imidl], imidr, arr[imidr], arr)
+                        print(f"(abs(upp - low):{abs(upp - low)} arr[imidl]={arr[imidl]} arr[imidr]={arr[imidr]}")
+                        class_wrap_binr_srch.gupp = class_wrap_binr_srch.gupp - midl - 0
+                        class_wrap_binr_srch.glow = class_wrap_binr_srch.glow
+                        low = class_wrap_binr_srch.glow
+                        upp = class_wrap_binr_srch.gupp
+                        class_wrap_binr_srch.print_vals("midl<srch-D", class_wrap_binr_srch.cnt, srch, low, upp, 999, 999, imidl, arr[imidl], imidr, arr[imidr], arr)
+                        class_wrap_binr_srch.binr_srch(srch, low, upp, arr)
+                if class_wrap_binr_srch.gupp < class_wrap_binr_srch.glow:
+                    print("get out")
+                    break
+
+        #binr_srch(srch, inter_low, inter_upp, arr)
+
+
+srch = 25
+arr = [5, 7, 9, 11, 13, 14, 16, 18, 20, 22, 23, 25, 27, 28]
+low=0
+upp=len(arr)-1
+a=class_wrap_binr_srch(srch, arr)
+#print(a.low, a.upp,a.arr)
+a.binr_srch(srch, low, upp, arr)

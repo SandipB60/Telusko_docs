@@ -1,0 +1,727 @@
+#69 Python Tutorial for Beginners | Binary Search Using Python					https://www.youtube.com/watch?v=DE-ye0t0oxE&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=74
+  ------------------------------  
+from math import *
+class search_class:
+    L=0
+    U=0
+    def __init__(self, v, lst=[]):
+        self.v=v
+        self.lst=lst
+    def sort_list(self):
+        #print(lst)
+        lst.sort()
+        return lst
+    def find_first_lower(self):
+        return lst[0]
+    def find_last_upper(self):
+        t=len(lst)
+        return lst[t-1]
+        #return lst[t]
+    def find_mid(self,p=[]):
+        return len(p)/2
+    def f(self,low,upp,lst):
+        low=0
+        upp=len(lst)-1
+        #for i in range(len(lst)):
+        if len(lst) % 2 != 0:
+            if lst[ceil(len(lst) / 2) ] < self.v:
+                low=len(lst) / 2
+                #upp=
+                f(low,upp,lst)
+            elif lst[ceil(len(lst) / 2) ] > self.v:
+                #low =
+                upp = len(lst) / 2
+                f(low, upp, lst)
+            else:
+                print(f".foud item: {self.v} at {ceil(len(lst) / 2)+1} position" )
+
+        else:
+            if lst[ceil(((len(lst)) / 2))-1 ] < self.v:
+                low=(ceil((len(lst)) / 2))-1
+                #upp=
+                print("---1---")
+                f(low, upp, lst)
+            elif lst[ceil((len(lst)) / 2)+1 ] > self.v:
+                upp =((len(lst)) / 2)+1
+                print("---2---")
+                f(low, upp, lst)
+            else:
+                print(f"..foud item at {ceil((len(lst)) / 2+1)}")
+
+v=8
+#lst=[5,8,6,7,9,56,111]
+lst=[5,8,4,6,9,2,11]
+m=len(lst)
+print(f"Given List : {lst} of {m} items")
+x=search_class(v,lst)
+print(f"Sorted list: {x.sort_list()}")
+#print(x.find_first_lower())
+#print(x.find_last_upper())
+x.f(0,m,lst)
+
+  -------------------------------
+Given List : [5, 8, 4, 6, 9, 2, 11] of 7 items
+Sorted list: [2, 4, 5, 6, 8, 9, 11]
+.foud item: 8 at 5 position
+  +++++++++++++++++++++++++++++++
+
+
+
+cnt=0
+def fn_prnt(tag,cnt, low,upp,lnth,srch,arr):
+    #print(f"{tag}-cnt= {cnt},low={low}, upp={upp}, lnth={lnth}, srch={srch}, arr={arr} ")
+    #print(f"{tag}-low={low}, upp={upp}, lnth={lnth}, arr[low]={arr[low]},  arr[upp]={arr[upp]}, srch={srch}, arr={arr} ")
+    print(f"{tag}-cnt= {cnt},low={low}, upp={upp}, lnth={lnth}, arr[low]={arr[low]},  arr[upp-low-1]={arr[upp-1]}, srch={srch}, arr={arr} ")
+    #print(f"{tag}-cnt= {cnt},low={low}, upp={upp}, lnth={lnth},  arr[upp-low-1]={arr[upp -low- 1]}, srch={srch}, arr={arr} ")
+
+def bn_src_arry(low,upp,lnth):
+    lnth_act=upp-low+1
+    global cnt
+    fn_prnt("AO",cnt, low, upp, lnth, srch, arr)
+    #while lnth != 1:
+    while (upp-low) > 2:
+    #while  cnt <= 10:
+        fn_prnt("AO000-break", cnt, low, upp, lnth, srch, arr)
+        if lnth <= 1 or (low == upp):
+        #if cnt >= 10 or lnth <= 1 or (low==upp):
+            fn_prnt("AO0-break", cnt, low, upp, lnth, srch, arr)
+            break
+        cnt=cnt+1
+        if lnth_act%2 != 0:
+            mid0=(int((upp-low)/2))
+            print(f"plc: {(int(lnth/2))} -- arr[(int(lnth/2))]={arr[(int(lnth/2))]}")
+            #fn_prnt("A1", cnt,low, upp, lnth, srch, arr)
+            #fn_prnt("A2", cnt, int(lnth/2), upp, lnth, srch, arr)
+            if arr[mid0]==srch:
+                print(f"Got it-1: {srch}:: at pos:{low}{upp}")
+                fn_prnt("B",cnt, low, upp, lnth, srch, arr)
+                break
+            else:
+                if srch > arr[mid0]:
+                    fn_prnt("C", cnt,low, upp, lnth, srch, arr)
+                    low=low+(mid0)
+                    upp=upp
+                    lnth = upp - low+1
+                    bn_src_arry(low, upp,lnth)
+                elif arr[(int((upp-low)/2))] > srch:
+                    fn_prnt("D", cnt,low, upp, lnth, srch, arr)
+                    #low = low
+                    low=0
+                    upp = upp - (int((upp-low) / 2))
+                    lnth = upp - low+1
+                    bn_src_arry(low, upp,lnth)
+                else:
+                    fn_prnt("xxx", cnt, low, upp, lnth, srch, arr)
+        else:
+            pos1=(int((upp-low)/2))
+            pos2= (int((upp-low)/2)+1)
+            print(f"arr[pos1]={arr[pos1]}")
+            print(f"arr[pos2]={arr[pos2]}")
+            #fn_prnt("E00-A", cnt,pos1, upp, lnth, srch, arr)
+            #fn_prnt("E00-B", cnt, low, upp, lnth, srch, arr)
+            if arr[(pos1)]==srch or arr[(pos2)] ==srch:
+                fn_prnt("E1A", cnt,low, (pos1), lnth, srch, arr)
+                fn_prnt("E1B", cnt, (pos2), upp, lnth, srch, arr)
+                print(f"Got it-2: {srch}:: at pos:{low}{upp}")
+                break
+            else:
+                if srch > arr[(pos2)]:
+                    fn_prnt("F", cnt,low, upp, lnth, srch, arr)
+                    #low = low + (int(lnth/2)+1)
+                    low = low + (pos2)
+                    upp = upp
+                    lnth = upp - low+1
+                    bn_src_arry(low, upp,lnth)
+                elif arr[pos1] > srch:
+                    fn_prnt("G", cnt,low, upp, lnth, srch, arr)
+                    #low = low
+                    low=0
+                    upp = upp - (pos1)
+                    lnth = upp - low+1
+                    bn_src_arry(low, upp,lnth)
+                else:
+                    #print("equal-nothing-2")
+                    fn_prnt("yyy", cnt, low, upp, lnth, srch, arr)
+
+
+
+srch=9
+arr=[5, 6, 7, 8, 9, 56, 59,83,87,89,91]
+##srch=56
+##arr=[5, 6, 7, 8, 9, 56, 59,83,87,89,91]
+low=0
+upp=len(arr)
+lnth=upp-low+1
+print(f"low={low} upp={upp} :: {arr[low]} : {arr[upp-1]}:: len={len(arr)} ::{arr}")
+bn_src_arry(low, upp,lnth)
+
+
+------------------
+
+
+cnt=0
+def fn_prnt(tag,cnt, low,upp,mid0, mid1,mid2,lnth,srch,arr):
+    #print(f"{tag}-cnt= {cnt},low={low}, upp={upp}, lnth={lnth}, srch={srch}, arr={arr} ")
+    #print(f"{tag}-low={low}, upp={upp}, lnth={lnth}, arr[low]={arr[low]},  arr[upp]={arr[upp]}, srch={srch}, arr={arr} ")
+    print(f"{tag}-cnt= {cnt},low={low}, upp={upp}, lnth={lnth}, arr[low]={arr[low]},  arr[upp-low-1]={arr[upp-1]}, mid0={mid0},mid1={mid1},mid2={mid2} srch={srch}, arr={arr} ")
+    #print(f"{tag}-cnt= {cnt},low={low}, upp={upp}, lnth={lnth},  arr[upp-low-1]={arr[upp -low- 1]}, srch={srch}, arr={arr} ")
+
+def bn_src_arry(low,upp,lnth):
+    global cnt
+    fn_prnt("AO",cnt, low, upp,999,999,999, lnth, srch, arr)
+    #while lnth != 1:
+    while (upp-low) > 2:
+    #while  cnt <= 10:
+        fn_prnt("AO000", cnt, low, upp,999,999,999, lnth, srch, arr)
+        cnt=cnt+1
+        print(f"00-(upp-low)%2={(upp - low) % 2}")
+        if (upp-low)%2 == 1:
+            print(f"01-(upp-low)%2={(upp - low) % 2}")
+            mid0=(int((upp-low)/2))
+            print(f"plc: {(int(lnth/2))} -- arr[(int(lnth/2))]={arr[(int(lnth/2))]}")
+            #fn_prnt("A1", cnt,low, upp, lnth, srch, arr)
+            #fn_prnt("A2", cnt, int(lnth/2), upp, lnth, srch, arr)
+            if arr[mid0]==srch:
+                print(f"Got it-1: {srch}:: at pos:{low}{upp}")
+                fn_prnt("B",cnt, low, upp,arr[mid0],999,999, lnth, srch, arr)
+                break
+            else:
+                if srch > arr[mid0]:
+                    fn_prnt("CA", cnt,low, upp,arr[mid0],999,999, lnth, srch, arr)
+                    low=low+(mid0)
+                    upp=upp
+                    lnth = upp - low+1
+                    fn_prnt("CB", cnt, low, upp, arr[mid0], 999, 999, lnth, srch, arr)
+                    bn_src_arry(low, upp,lnth)
+                elif arr[mid0] > srch:
+                    fn_prnt("D", cnt,low, upp,arr[mid0],999,999, lnth, srch, arr)
+                    #low = low
+                    low=low
+                    #upp = upp - (int((upp-low) / 2))
+                    upp=upp-mid0
+                    lnth = upp - low+1
+                    bn_src_arry(low, upp,lnth)
+                else:
+                    fn_prnt("xxx", cnt, low, upp,arr[mid0],999,999, lnth, srch, arr)
+        elif (upp-low)%2 == 0:
+            print(f"03-(upp-low)%2={(upp - low) % 2}")
+            pos1=(int((upp-low)/2))
+            pos2= (int((upp-low)/2)+1)
+            print(f"arr[pos1]={arr[pos1]}::{pos1}")
+            print(f"arr[pos2]={arr[pos2]}::{pos2}")
+            #fn_prnt("E00-A", cnt,pos1, upp, lnth, srch, arr)
+            #fn_prnt("E00-B", cnt, low, upp, lnth, srch, arr)
+            if arr[(pos1)]==srch or arr[(pos2)] ==srch:
+                fn_prnt("E1A", cnt,low, upp,999,pos1,pos2,lnth, srch, arr)
+                print(f"Got it-2: {srch}:: at pos:{low}{upp}")
+                break
+            else:
+                if srch > arr[(pos2)]:
+                    fn_prnt("F", cnt,low, upp,999,999,arr[pos2], lnth, srch, arr)
+                    #low = low + (int(lnth/2)+1)
+                    low = low + (pos2)
+                    upp = upp
+                    lnth = upp - low+1
+                    bn_src_arry(low, upp,lnth)
+                elif arr[pos1] > srch:
+                    fn_prnt("G", cnt,low, upp,999,arr[pos1],999, lnth, srch, arr)
+                    #low = low
+                    low=low
+                    upp = upp - (pos1)
+                    lnth = upp - low+1
+                    bn_src_arry(low, upp,lnth)
+                else:
+                    #print("equal-nothing-2")
+                    fn_prnt("yyy", cnt, low, upp,999,arr[pos1],arr[pos2], lnth, srch, arr)
+        else:
+            print(f"04-(upp-low)%2={(upp - low) % 2}")
+
+
+
+srch=89
+arr=[5, 6, 7, 8, 9, 56, 59,83,87,89,91]
+##srch=56
+##arr=[5, 6, 7, 8, 9, 56, 59,83,87,89,91]
+low=0
+upp=len(arr)
+lnth=upp-low
+print(f"low={low} upp={upp} :: {arr[low]} : {arr[upp-1]}:: len={len(arr)} ::{arr}")
+bn_src_arry(low, upp,lnth)
+
+  ===================+++++++++++++++++++++++++++++++++
+glow=0
+gupp=0
+cnt=1
+def print_vals(tag,cnt,srch,low,upp,mid0,amid0,midl,amidl,midr,amidr,arr):
+    print(f"{tag}:cnt={cnt}: srch={srch}, low={low},upp={upp},mid0={mid0}, mid1={midl}, mid2={midr}, arr={arr}")
+    print(f"srch={srch}, arr[low]={arr[low]},arr[upp-1]= {arr[upp - 1]},arr[mid0] ={amid0}, arr[midl]={amidl}, arr[mid2]={amidr}\n")
+    #if mid0==999 or midl==999 or midr==999:
+        #print(f"srch={srch}, arr[low]={arr[low]},arr[upp-1]= {arr[upp - 1]},arr[mid0] =999, arr[mid1]=999, arr[mid2]=999\n")
+    #else:
+    # print(f"srch={srch}, arr[low]={arr[low]},arr[upp-1]= {arr[upp-1]},arr[mid0] ={arr[mid0]}, arr[mid1]={arr[midl]}, arr[mid2]={arr[midr]}, arr={arr}")
+
+def binr_srch(srch,low,upp,arr):
+
+    global cnt
+    print_vals("start", cnt, srch, low, upp,999,999,999,999,999,999, arr)
+    while (upp-low) >=2 : #and cnt <= 15:
+        cnt=cnt+1
+        if (upp-low)%2 == 1:
+            mid0=int((upp-low)/2)
+            if arr[mid0] == srch:
+                print("got it : 1")
+                print_vals("mid=srch-00",cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                break
+            elif arr[mid0] > srch:
+                print_vals("srch>mid-A", cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                #low=low+mid0
+                low=mid0
+                upp=upp
+                print_vals("srch>mid-B", cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                binr_srch(srch, low, upp, arr)
+            else:
+                print_vals("mid<srch-C", cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                low = low
+                upp=mid0-1
+                #upp = upp+mid0-1
+                print_vals("mid<srch-D", cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                binr_srch(srch, low, upp, arr)
+        else:
+            midl=int((upp-low)/2)-1
+            midr=int((upp-low)/2)
+            if srch==arr[midl] or srch==arr[midr]:
+                print("got it : 2")
+                print_vals("mid1&2 =srch-00", cnt, srch, low, upp,999,999,midl,arr[midl], midr,arr[midr], arr)
+                break
+            elif srch > arr[midr]:
+                print_vals("srch>mid2-A", cnt, srch, low, upp,999,999,midl,arr[midl], midr,arr[midr], arr)
+                #low=low+midr+1
+                low = midr + 1
+                upp=upp
+                print_vals("srch>mid2-B", cnt, srch, low, upp,999,999,midl,arr[midl], midr,arr[midr], arr)
+                binr_srch(srch, low, upp, arr)
+            else:
+                print_vals("mid1<srch-C", cnt, srch, low, upp,999,999,midl,arr[midl], midr,arr[midr], arr)
+                #upp=upp-midl-1
+                upp =midl - 1
+                low=low
+                print_vals("mid1<srch-D", cnt, srch, low, upp,999,999,midl,arr[midl], midr,arr[midr], arr)
+                binr_srch(srch, low, upp, arr)
+
+
+
+srch=89
+arr=[5, 6, 7, 8, 9, 56, 59,83,87,89,91]
+low=0
+upp=len(arr)
+binr_srch(srch,low,upp,arr)
+  ===================+++++++++++++++++++++++++++++++++
+
+  ============================================consider this below Correct?????????????????+++++++++++++++++++++++++++++++++++++
+
+glow=0
+gupp=11
+cnt=1
+def print_vals(tag,cnt,srch,low,upp,mid0,amid0,midl,amidl,midr,amidr,arr):
+    #print(f"len(arr)={len(arr)}")
+    print(f"deb-{tag}:cnt={cnt}: srch={srch}, low={low},upp={upp},mid0={mid0}, mid1={midl}, mid2={midr}, len(arr)={len(arr)} arr={arr}")
+    #print(f"srch={srch}, arr[mid0] ={arr[amid0]}, arr[midl]={arr[midl]}, arr[mid2]={amidr}")
+    if (low < 0 or low > len(arr)) or  (upp < 0 or upp > len(arr)-1):
+             print(f"deb-if: srch={srch}, arr[low]=xxxx,arr[upp-1]=xxx,,arr[mid0] ={amid0}, arr[midl]={amidl}, arr[mid2]={amidr}\n")
+    else:
+        # print(f"srch={srch}, arr[low]={low},arr[upp-1]= {upp},arr[mid0] ={amid0}, arr[midl]={amidl}, arr[mid2]={amidr}")
+        # print(f"srch={srch}, arr[low]=ind:{low},arr[upp-1]=ind={upp-1},arr[mid0] =xxx, arr[midl]={amidl}, arr[mid2]={amidr}\n")
+        print(f"deb-else: srch={srch}, arr[low-1]={arr[low]-1},arr[upp-1]= {arr[upp - 1]},arr[mid0] ={amid0}, arr[midl]={amidl}, arr[mid2]={amidr}\n")
+
+def checkl(low,upp):
+    if (low >= 0 or low <= len(arr)-1) or (upp >= 0 or low <= len(upp)-1) :
+        #print("ok")
+        return True
+    else :
+        print("need break")
+        return False
+
+def binr_srch(srch,low,upp,arr):
+
+    global glow
+    global gupp
+    global cnt
+    print(" ===================================================================")
+    #print_vals("start", cnt, srch, low, upp,999,999,999,999,999,999, arr)
+    if (glow >=0 or glow <= len(arr)-1) or (gupp >=0 or gupp <= len(arr)-1):
+        print(f"start-glow={glow} gupp={gupp} arr[glow]={arr[glow]} arr[gupp-1]={arr[gupp-1]}")
+    else:
+        print(f"start-glow={glow} gupp={gupp} arr[glow]=xxxx arr[gupp-1]=xxxx")
+    #print(f"start-glow={glow} gupp={gupp} arr[glow]={arr[glow]} arr[gupp-1]={arr[gupp - 1]}\n")
+    while (gupp-glow) >1 : #and cnt <= 15:
+        cnt=cnt+1
+        if not checkl(glow, gupp):
+            break
+        if (gupp-glow)%2 == 1:
+            #mid0=int((gupp-glow)/2)
+            mid0 = int((gupp - glow) / 2)
+            if arr[mid0] == srch:
+                print(f"got it : 1 at {mid0}")
+                print_vals("mid0=srch-00",cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                break
+            elif arr[mid0] < srch:
+                print_vals("srch>mid0-A", cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                #low=low+mid0
+                glow=glow+mid0
+                gupp=gupp
+                low=glow
+                upp=gupp
+                if upp-low==2:
+                    if arr[int((upp+low)/2)]==srch:
+                        print (f"got it AA: at {int((upp+low)/2)}")
+                        break
+                    else:
+                        print(f"srch={srch} is not in {arr}")
+                        break
+                print_vals("srch>mid0-B", cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                if not checkl(glow,gupp):
+                    break
+                binr_srch(srch, low, upp, arr)
+            else:
+                print_vals("mid0<srch-C", cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                glow = glow
+                #gupp = gupp-mid0-1
+                gupp = gupp - mid0 - 0
+                low=glow
+                upp=gupp
+                #upp = upp+mid0-1
+                print_vals("mid0<srch-D", cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                if not checkl(glow,gupp):
+                    break
+                binr_srch(srch, low, upp, arr)
+        else:
+            midl=int((gupp-glow)/2)-1
+            midr=int((gupp-glow)/2)
+            if not checkl(glow, gupp):
+                break
+            if (srch==arr[midl]) or srch==arr[midr]:
+                if srch==arr[midl] :
+                    print(f"got {srch} at: {midl}")
+                    print_vals("midl&r =srch-00", cnt, srch, low, upp,999,999,midl,arr[midl], midr,arr[midr], arr)
+                    break
+                elif srch==arr[midr]:
+                    print(f"got {srch} at:  {midr}")
+                    print_vals("midl&r =srch-00", cnt, srch, low, upp,999,999,midl,arr[midl], midr,arr[midr], arr)
+                    break
+            elif srch > arr[midr]:
+                print_vals("srch>midr-A", cnt, srch, low, upp,999,999,midl,arr[midl], midr,arr[midr], arr)
+                #low=low+midr+1
+                #glow =glow+ midr + 1
+                glow = glow + midr + 0
+                gupp=gupp
+                low = glow
+                upp = gupp
+                print_vals("srch>midr-B", cnt, srch, low, upp,999,999,midl,arr[midl], midr,arr[midr], arr)
+                binr_srch(srch, low, upp, arr)
+            else:
+                print_vals("midl<srch-C", cnt, srch, low, upp,999,999,midl,arr[midl], midr,arr[midr], arr)
+                #upp=upp-midl-1
+                #gupp =gupp-midl - 1
+                gupp = gupp - midl - 0
+                glow=glow
+                low = glow
+                upp = gupp
+                print_vals("midl<srch-D", cnt, srch, low, upp,999,999,midl,arr[midl], midr,arr[midr], arr)
+                binr_srch(srch, low, upp, arr)
+        if gupp<= glow:
+            print("get out")
+            break
+
+
+
+#srch=89
+srch=59
+arr=[5, 6, 7, 8, 9, 56, 59,83,87,89,91]
+low=0
+upp=len(arr)
+#print(upp)
+binr_srch(srch,low,upp,arr)
+
++++++++++++++++++++
+
+
+glow=0
+gupp=11
+cnt=1
+def print_vals(tag,cnt,srch,low,upp,mid0,amid0,midl,amidl,midr,amidr,arr):
+    #print(f"len(arr)={len(arr)}")
+    print(f"deb-{tag}:cnt={cnt}: srch={srch}, low={low},upp={upp},mid0={mid0}, mid1={midl}, mid2={midr}, len(arr)={len(arr)} arr={arr}")
+    #print(f"srch={srch}, arr[mid0] ={arr[amid0]}, arr[midl]={arr[midl]}, arr[mid2]={amidr}")
+    if (low < 0 or low > len(arr)) or  (upp < 0 or upp > len(arr)-1):
+             print(f"deb-if: srch={srch}, arr[low]=xxxx,arr[upp-1]=xxx,,arr[mid0] ={amid0}, arr[midl]={amidl}, arr[mid2]={amidr}\n")
+    else:
+        # print(f"srch={srch}, arr[low]={low},arr[upp-1]= {upp},arr[mid0] ={amid0}, arr[midl]={amidl}, arr[mid2]={amidr}")
+        # print(f"srch={srch}, arr[low]=ind:{low},arr[upp-1]=ind={upp-1},arr[mid0] =xxx, arr[midl]={amidl}, arr[mid2]={amidr}\n")
+        print(f"deb-else: srch={srch}, arr[low-1]={arr[low]-1},arr[upp-1]= {arr[upp - 1]},arr[mid0] ={amid0}, arr[midl]={amidl}, arr[mid2]={amidr}\n")
+
+def checkl(low,upp):
+    if (low >= 0 or low <= len(arr)-1) or (upp >= 0 or low <= len(upp)-1) :
+        #print("ok")
+        return True
+    else :
+        print("need break")
+        return False
+
+def binr_srch(srch,low,upp,arr):
+
+    global glow
+    global gupp
+    global cnt
+    print(" ===================================================================")
+    #print_vals("start", cnt, srch, low, upp,999,999,999,999,999,999, arr)
+    if (glow >=0 or glow <= len(arr)-1) or (gupp >=0 or gupp <= len(arr)-1):
+        print(f"start-glow={glow} gupp={gupp} arr[glow]={arr[glow]} arr[gupp-1]={arr[gupp-1]}")
+    else:
+        print(f"start-glow={glow} gupp={gupp} arr[glow]=xxxx arr[gupp-1]=xxxx")
+    #print(f"start-glow={glow} gupp={gupp} arr[glow]={arr[glow]} arr[gupp-1]={arr[gupp - 1]}\n")
+    while (gupp-glow) >1 : #and cnt <= 15:
+        cnt=cnt+1
+        if not checkl(glow, gupp):
+            break
+        if (gupp-glow)%2 == 1:
+            #mid0=int((gupp-glow)/2)
+            mid0 = int((gupp - glow) / 2)
+            if arr[mid0] == srch:
+                print(f"got it : 1 at {mid0}")
+                print_vals("mid0=srch-00",cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                break
+            elif arr[mid0] < srch:
+                print_vals("srch>mid0-A", cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                #low=low+mid0
+                glow=glow+mid0
+                gupp=gupp
+                low=glow
+                upp=gupp
+                if upp-low==2:
+                    if arr[int((upp+low)/2)]==srch:
+                        print (f"got it AA: at {int((upp+low)/2)}")
+                        break
+                    else:
+                        print(f"srch={srch} is not in {arr}")
+                        break
+                print_vals("srch>mid0-B", cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                if not checkl(glow,gupp):
+                    break
+                binr_srch(srch, low, upp, arr)
+            else:
+                print_vals("mid0<srch-C", cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                glow = glow
+                #gupp = gupp-mid0-1
+                gupp = gupp - mid0 - 0
+                low=glow
+                upp=gupp
+                #upp = upp+mid0-1
+                print_vals("mid0<srch-D", cnt,srch,low,upp,mid0,arr[mid0],999,999,999,999,arr)
+                if not checkl(glow,gupp):
+                    break
+                binr_srch(srch, low, upp, arr)
+        else:
+            midl=int((gupp-glow)/2)-1
+            midr=int((gupp-glow)/2)
+            print(f"midl={midl} midr={midr}")
+            imidl=glow+midl
+            imidr=glow + midr
+            #midl=gupp-midl
+            #midr=glow-midr
+            if not checkl(glow, gupp):
+                break
+            if (srch==arr[imidl]) or srch==arr[imidr]:
+                if srch==arr[imidl] :
+                    print(f"got {srch} at: {imidl}")
+                    print_vals("midl&r =srch-00", cnt, srch, low, upp,999,999,imidl,arr[imidl], imidr,arr[imidr], arr)
+                    break
+                elif srch==arr[imidr]:
+                    print(f"got {srch} at:  {imidr}")
+                    print_vals("midl&r =srch-00", cnt, srch, low, upp,999,999,imidl,arr[imidl], imidr,arr[imidr], arr)
+                    break
+            elif srch > arr[imidr]:
+                print_vals("srch>midr-A", cnt, srch, low, upp,999,999,imidl,arr[imidl], imidr,arr[imidr], arr)
+                #low=low+midr+1
+                #glow =glow+ midr + 1
+                glow = glow + imidr + 0
+                gupp=gupp
+                low = glow
+                upp = gupp
+                print_vals("srch>midr-B", cnt, srch, low, upp,999,999,imidl,arr[imidl], imidr,arr[imidr], arr)
+                binr_srch(srch, low, upp, arr)
+            else:
+                print_vals("midl<srch-C", cnt, srch, low, upp,999,999,imidl,arr[imidl], imidr,arr[imidr], arr)
+                #upp=upp-midl-1
+                #gupp =gupp-midl - 1
+                gupp = gupp - midl - 0
+                glow=glow
+                low = glow
+                upp = gupp
+                print_vals("midl<srch-D", cnt, srch, low, upp,999,999,imidl,arr[imidl], imidr,arr[imidr], arr)
+                binr_srch(srch, low, upp, arr)
+        if gupp<= glow:
+            print("get out")
+            break
+
+
+
+#srch=89
+srch=59
+arr=[5, 6, 7, 8, 9, 56, 59,83,87,89,91]
+low=0
+upp=len(arr)
+#print(upp)
+binr_srch(srch,low,upp,arr)
+
+
+
+
+  ============================================consider this above Correct?????????????????+++++++++++++++++++++++++++++++++++++
+
+  ================================================================below correct with comment============================================
+  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+glow=0
+gupp=14
+cnt=1
+def print_vals(tag,cnt,srch,low,upp,mid0,amid0,midl,amidl,midr,amidr,arr):
+    print(f"low={low} , upp={upp}")
+    #print(f"len(arr)={len(arr)}")
+    print(f"deb-{tag}:cnt={cnt}: srch={srch}, low={low},upp={upp},mid0={mid0}, midl={midl}, midr={midr}, len(arr)={len(arr)} arr={arr}")
+    #print(f"srch={srch}, arr[mid0] ={arr[amid0]}, arr[midl]={arr[midl]}, arr[mid2]={amidr}")
+    if (low < 0 or low >= len(arr)+1) or  (upp < 0 or upp >= len(arr)+1):
+        #print(f"low={low} , upp={upp}")
+        print(f"deb-if: srch={srch}, arr[low]=xxxx,arr[upp-1]=xxx,,arr[mid0] ={amid0}, arr[midl]={amidl}, arr[mid2]={amidr}\n")
+    else:
+        # print(f"srch={srch}, arr[low]={low},arr[upp-1]= {upp},arr[mid0] ={amid0}, arr[midl]={amidl}, arr[mid2]={amidr}")
+        # print(f"srch={srch}, arr[low]=ind:{low},arr[upp-1]=ind={upp-1},arr[mid0] =xxx, arr[midl]={amidl}, arr[mid2]={amidr}\n")
+        print(f"deb-else: srch={srch}, arr[low]={arr[low]},arr[upp-1]= {arr[upp - 1]},arr[mid0] ={amid0}, arr[midl]={amidl}, arr[midr]={amidr}\n")
+
+def checkl(low,upp):
+    if (low >= 0 or low <= len(arr)-1) or (upp >= 0 or low <= len(upp)-1) :
+        return True
+    else :
+        print("need break")
+        return False
+def check_gupp_glow_eq_2 (low,up):
+    if abs(upp-low)==2:
+            return True
+
+def binr_srch(srch,low,upp,arr):
+
+    global glow
+    global gupp
+    global cnt
+    print(" ===================================================================")
+    if (glow >=0 or glow <= len(arr)-1) or (gupp >=0 or gupp <= len(arr)-1):
+        print(f"start-glow={glow} gupp={gupp} arr[glow]={arr[glow]} arr[gupp-1]={arr[gupp-1]}")
+    else:
+        print(f"start-glow={glow} gupp={gupp} arr[glow]=xxxx arr[gupp-1]=xxxx")
+
+    #while (gupp-glow) >1 or glow < 0 or gupp > len(arr): #and cnt <= 15:
+    while glow >= 0 or gupp < len(arr):  # and cnt <= 15:
+        cnt=cnt+1
+        if not checkl(glow, gupp):
+            break
+        if (gupp-glow)%2 == 1:
+            mid0 = int((gupp - glow) / 2)
+            imid0=glow+mid0
+
+            if abs(upp - low) == 2 and (arr[imid0] != srch) or ((upp==low) and (arr[imid0] != srch)):
+                print(f"mid0=srch-0::srch: {srch} not in {arr}")
+                break
+            if (upp==(low+1)) and (arr[imid0] != srch):
+                print(f"mid0=srch-0::srch: {srch} not in {arr}")
+                break
+
+            if arr[imid0] == srch:
+                print(f"got {srch} : 1 at {mid0}")
+                print_vals("mid0=srch-00",cnt,srch,low,upp,imid0,arr[imid0],999,999,999,999,arr)
+                break
+            elif arr[imid0] < srch:
+                print_vals("srch>mid0-A", cnt,srch,low,upp,imid0,arr[imid0],999,999,999,999,arr)
+                glow=glow+mid0
+                gupp=gupp
+                low=glow
+                upp=gupp
+                if upp-low==2:
+                    if arr[int((upp+low)/2)]==srch:
+                        print (f"got {srch} AA: at {int((upp+low)/2)}")
+                        break
+                    else:
+                        print(f"srch={srch} is not in {arr}")
+                        break
+                print_vals("srch>mid0-B", cnt,srch,low,upp,imid0,arr[imid0],999,999,999,999,arr)
+                if not checkl(glow,gupp):
+                    break
+                binr_srch(srch, low, upp, arr)
+            else:
+                print_vals("mid0<srch-C", cnt,srch,low,upp,imid0,arr[imid0],999,999,999,999,arr)
+                glow = glow
+                gupp = gupp - mid0 - 0
+                low=glow
+                upp=gupp
+                print_vals("mid0<srch-D", cnt,srch,low,upp,imid0,arr[imid0],999,999,999,999,arr)
+                if not checkl(glow,gupp):
+                    break
+                binr_srch(srch, low, upp, arr)
+        else:
+            midl=int((gupp-glow)/2)-1
+            midr=int((gupp-glow)/2)
+            print(f"midl={midl} midr={midr}")
+            imidl=glow+midl
+            imidr=glow + midr
+            if abs(upp - low) == 2 and (arr[imidl] != srch and arr[imidr] != srch):
+                print(f"midl&r =srch-0A::srch: {srch} not in {arr}")
+                break
+            if (arr[imidl] != srch or arr[imidr] != srch) and ((upp==(low+1))):
+                print(f"midl&r =srch-0B::srch: {srch} not in {arr}")
+                break
+
+            if (srch==arr[imidl]) or srch==arr[imidr]:
+                if srch==arr[imidl] :
+                    print(f"got {srch} at: {imidl}")
+                    print_vals("midl&r =srch-00", cnt, srch, low, upp,999,999,imidl,arr[imidl], imidr,arr[imidr], arr)
+                    break
+                elif srch==arr[imidr]:
+                    print(f"got {srch} at:  {imidr}")
+                    print_vals("midl&r =srch-00", cnt, srch, low, upp,999,999,imidl,arr[imidl], imidr,arr[imidr], arr)
+                    break
+            elif srch > arr[imidr]:
+                print_vals("srch>midr-A", cnt, srch, low, upp,999,999,imidl,arr[imidl], imidr,arr[imidr], arr)
+                glow = glow + midr + 0
+                gupp=gupp
+                low = glow
+                upp = gupp
+                print_vals("srch>midr-B", cnt, srch, low, upp,999,999,imidl,arr[imidl], imidr,arr[imidr], arr)
+                if not checkl(glow,gupp):
+                    break
+                binr_srch(srch, low, upp, arr)
+            else:
+                print_vals("midl<srch-C", cnt, srch, low, upp,999,999,imidl,arr[imidl], imidr,arr[imidr], arr)
+                print(f"(abs(upp - low):{abs(upp-low)} arr[imidl]={arr[imidl]} arr[imidr]={arr[imidr]}")
+                gupp = gupp - midl - 0
+                glow=glow
+                low = glow
+                upp = gupp
+                print_vals("midl<srch-D", cnt, srch, low, upp,999,999,imidl,arr[imidl], imidr,arr[imidr], arr)
+                if not checkl(glow,gupp):
+                    break
+                binr_srch(srch, low, upp, arr)
+        if gupp< glow:
+            print("get out")
+            break
+
+
+
+#srch=89
+srch=29
+#arr=[5, 6, 7, 8, 9, 56, 59,83,87,89,91]
+arr=[5, 7,  9, 11, 13,14, 16, 18,20,22,23, 25, 27,28]
+low=0
+upp=len(arr)
+print(upp)
+binr_srch(srch,low,upp,arr)
+
+  ================================================================above correct with comment============================================

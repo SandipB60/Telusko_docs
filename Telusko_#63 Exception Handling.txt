@@ -1,0 +1,172 @@
+#63 Python Tutorial for Beginners | Exception Handling					https://www.youtube.com/watch?v=6SPDvPK38tw&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=68
+  --------------------------------------
+Error type:
+1. Compile time/ Syntactical error
+2. Logical 
+3. Run time (e.g. devide 6/0, error due to missing file,)
+  -----------------
+a=5
+b=2
+print(a/b)
+statement:
+1. normal (that does not give error, a=5 and v)
+2. critical (e.g.print(a/b), not sure if it will work )
+  +++++++++++++++++++++++++++++++++++++++
+####Resource (db conn, file, etc ) should be closed in "finally:" block for example "print("resource close.....3")")". "finally:" block is executed in anyway (exception or not)
+  +++++++++++++++++++++++++++++++++++++++
+error before try,.... goes outof block ???
+b=2
+k=int(input("Enter val:"))
+try:
+  +++++++++++++++++++++++++++++++++++++++
+## if critical statement that creates error before "try",control goes out of the block. It is not trapped in te current exception or finally block.
+  +++++++++++++++++++++++++++++++++++++++
+
+
+a=5
+b=2
+c=0
+try:
+    r=a/b
+    print (f"r=a/b={r}")
+    r1 = a / c
+    print(f"r1=a/b={r1}")
+except Exception as e:
+    print("you can not devide by 0..",e)
+print("Bye")
+  ------------------
+r=a/b=2.5
+you can not devide by 0.. division by zero
+Bye
+  +++++++++++++++++++++++++++++++++++++
+####Resource (db conn, file, etc ) should be closed in "finally:" block for example "print("resource close.....3")")". "finally:" block is executed in anyway.
+
+a=5
+b=0
+try:
+    print ("resource open")
+    r1 = a / b
+    print(f"r1=a/b={r1}")
+    print ("resource close.....1")
+except Exception as e:
+    print("you can not devide by 0..",e)
+    print("resource close.....2")
+finally:
+    print("resource close.....3")
+print("Bye")
+----------------
+resource open
+you can not devide by 0.. division by zero
+resource close.....2
+resource close.....3
+Bye
+  +++++++++++++++++++++++++++++++++++++
+you can not devide by 0.. invalid literal for int() with base 10: 'p'
+
+## error msg: "both devide by zero" and "invalid lit"
+a=5
+b=2
+
+try:
+    print ("resource open")
+    r1 = a / b
+    print(f"r1=a/b={r1}")
+    print ("resource close.....1")
+    k = int(input("Enter val:"))
+except Exception as e:
+    print("you can not devide by 0..",e)
+    print("resource close.....2")
+finally:
+    print("resource close.....3")
+print("Bye")
+
+  ----------------------------
+resource open
+r1=a/b=2.5
+resource close.....1
+Enter val:p
+you can not devide by 0.. invalid literal for int() with base 10: 'p'
+resource close.....2
+resource close.....3
+Bye
+  +++++++++++++++++++++++++++++++++++++
+## if critical statement that creates error before "try",control goes out of the block. It is not trapped in te current exception or finally block.
+
+a=5
+b=2
+k = int(input("Enter val:"))
+try:
+    print ("resource open")
+    r1 = a / b
+    print(f"r1=a/b={r1}")
+    print ("resource close.....1")
+
+except Exception as e:
+    print("you can not devide by 0..",e)
+    print("resource close.....2")
+finally:
+    print("resource close.....3")
+print("Bye")
+  -------------------
+Enter val:p
+Traceback (most recent call last):
+  File "D:/Sandip/Study/Python/Python_oops/Telusko/code_to_exec/gen.py", line 3, in <module>
+    k = int(input("Enter val:"))
+ValueError: invalid literal for int() with base 10: 'p'
+  +++++++++++++++++++++++++++++++++++++++
+
+a=5
+b=0
+
+try:
+    print ("resource open")
+    r1 = a / b
+    print(f"r1=a/b={r1}")
+    print ("resource close.....1")
+    k = int(input("Enter val:"))
+
+except ZeroDivisionError as e:
+    print("you can not devide by 0..",e)
+except ValueError as e:
+    print("Invalid output")
+
+except Exception as e:
+    print("something wrong... like oracle others")
+finally:
+    print("resource close.....3")
+print("Bye")
+  -------------------------
+resource open
+you can not devide by 0.. division by zero
+resource close.....3
+Bye
+  ++++++++++++++++++++++++++++++++++++
+a=5
+b=2
+
+try:
+    print ("resource open")
+    r1 = a / b
+    print(f"r1=a/b={r1}")
+    print ("resource close.....1")
+    k = int(input("Enter val:"))
+
+except ZeroDivisionError as e:
+    print("you can not devide by 0..",e)
+except ValueError as e:
+    print("Invalid output")
+
+except Exception as e:
+    print("something wrong... like oracle others")
+finally:
+    print("resource close.....3")
+print("Bye")
+  -------------------------
+resource open
+r1=a/b=2.5
+resource close.....1
+Enter val:p
+Invalid output
+resource close.....3
+Bye
+  +++++++++++++++++++++++++++++++++

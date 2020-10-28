@@ -1,0 +1,115 @@
+Class_Attribute_references_var_scope
+variables / namespace in class
+https://docs.python.org/3/tutorial/classes.html
+ +++++++++++++++++++++++++++++
+class Complex:
+
+    clssvar=100
+    def __init__(self, realpart, imagpart):
+        self.r = realpart
+        self.i = imagpart
+        self.n=10
+        self.m="sandip"
+        self.l=5.6
+    def addl0(self,x,y):
+        #nonlocal p
+        p=x+y
+        return x+y
+    def addl1(self,realpart,imagpart):
+        return ((realpart+imagpart)/self.n)
+    def addl12(self,):
+        #return ((self.realpart+self.imagpart))
+        return (self.r+self.i)
+    def addl13(self,):
+        #return ((self.realpart+self.imagpart))
+        #return (self.r+self.i+n+l)
+        return (self.r + self.i + self.n + self.l)
+    def addl14(self,):
+        for i in range(3):
+            i=i+1
+        print(f"r={self.r}, self.i= {self.i}, n={self.n} l={self.l}, i={i} ")
+        return (self.r + self.i + self.n + self.l+i)
+
+    def addl15A(self):
+        #nonlocal q
+        for i in range(3):
+            i=i+1
+        #q=i
+        return (i)
+    def addl15B(self):
+        return (10)
+
+    def addl16(self, ):
+        #m=Complex(1.0, 1)
+        #return (m.addl15A()+m.addl15B()+m.clssvar)
+        return (Complex(1.0, 1).addl15A() + Complex(1.0, 1).addl15B() + Complex(1.0, 1).clssvar)
+
+    def addl17(self,a,b,c ):
+        t=a+b+c
+        return (t)
+
+    def addl18(self,):
+        clssvar = 2
+        t=clssvar*2
+        return (t)
+
+    def addl19(self):
+        t=Complex.clssvar*4
+        return (t)
+
+
+x = Complex(3.0, -4.5)
+print(" -----1--x = Complex(3.0, -4.5) -- print(x.r, x.i)--------")
+print(x.r, x.i)
+print(" -----1--x = Complex(3.0, -4.5) -- print(x.n,x.m,x.l)--------")
+print(x.n,x.m,x.l)
+print(" ------2--print(x.addl0(3,4))-------")
+print(x.addl0(3,4))
+print(" ------2--print(x.addl1(3,4))-------")
+print(x.addl1(3,4))
+print(" -------3--print(x.addl12())------")
+print(x.addl12())
+print(" -------4---print(x.addl13())-----")
+print(x.addl13())
+print(" -------5---print(x.addl14())-----")
+print(x.addl14())
+print(" -------6---print(x.addl15A())-----")
+print(x.addl15A())
+print(" -------7---print(x.addl16()) #113-----")
+print(x.addl16()) #113
+print(" -------8---print(x.addl17(10,20,30))-----")
+print(x.addl17(10,20,30))
+print(" -------9---print(x.addl18()) #4-----")
+print(x.addl18()) #4
+print(" -------10---print(x.addl19()) #400-----")
+print(x.addl19()) #400
+print(" -------end--------")
+  -----------------------------------------------
+
+-----1--x = Complex(3.0, -4.5) -- print(x.r, x.i)--------
+3.0 -4.5
+ -----1--x = Complex(3.0, -4.5) -- print(x.n,x.m,x.l)--------
+10 sandip 5.6
+ ------2--print(x.addl0(3,4))-------
+7
+ ------2--print(x.addl1(3,4))-------
+0.7
+ -------3--print(x.addl12())------
+-1.5
+ -------4---print(x.addl13())-----
+14.1
+ -------5---print(x.addl14())-----
+r=3.0, self.i= -4.5, n=10 l=5.6, i=3 
+17.1
+ -------6---print(x.addl15A())-----
+3
+ -------7---print(x.addl16()) #113-----
+113
+ -------8---print(x.addl17(10,20,30))-----
+60
+ -------9---print(x.addl18()) #4-----
+4
+ -------10---print(x.addl19()) #400-----
+400
+ -------end--------
+ ++++++++++++++++++++++++++++++++

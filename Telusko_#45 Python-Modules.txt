@@ -1,0 +1,33 @@
+#45 Python Tutorial for Beginners | Modules					https://www.youtube.com/watch?v=1RuMJ53CKds&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=49	
+  ------------------------------------------------
+calc.py
+
+
+def add(x,y):
+    return (x+y)
+def sub(x,y):
+    return (x-y)
+def mul(x,y):
+    return (x*y)
+def div(x,y):
+    if  y!=0:
+        return (x/y)
+
+
+#print(add(5,10))
+#print(sub(5,10))
+#print(mul(5,10))
+#print(div(5,10))
+
+  --------------------------
+test_module_calc.py
+
+import calc
+from calc import *
+
+print('in test module calc: add',calc.add(5,10))
+print('in test module calc: sub',calc.sub(5,10))
+print('in test module import *: mul',mul(5,10))
+print('in test module import *: div',div(5,10))
+
+  --------------------------

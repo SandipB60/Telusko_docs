@@ -1,0 +1,98 @@
+#15 Python Tutorial for Beginners | Python BitWise Operators					https://www.youtube.com/watch?v=PyfKCvHALj8&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=18
+  ------------------------------
+Complement(~): Tilde operator
+And (&)
+Or (|)
+Xor(^)
+Left Shift(<<)
+Right Shift (>>)
+
+  ------------------------------
+complement of 0 is 1 and complement of 1 is 0.
+
+Complement(~): Tilde operator
+~12
+-13
+
+12--> Binary format --> 00001100
+print(bin(-13))
+print(bin(12))
+-0b1101
+0b1100
+
+print(bin(-13))
+print(bin(12))
+  ------------------------------
+bitwise and
+And (&)
+12 & 13
+12--> 00001100
+13--> 00001101
+ ---------------
+&     00001100
+
+print(12&13)
+print(bin(12))
+print(bin(13))
+
+12
+0b1100
+0b1101
+  ------------------------------
+print(12|13)
+print(bin(12))
+print(bin(13))
+Or (|)
+13
+0b1100
+0b1101
+12 | 13
+12--> 00001100
+13--> 00001101
+---------------
+|     00001101
+  ------------------------------
+Xor(^)
+even number--> 0
+odd  number--> 1
+
+00-->0
+01-->1
+10-->1
+11-->0
+
+print(12^13)
+1
+
+12-->00001100
+13-->00001101
+-------------------
+^ -->00000001
+
+bin(1)
+'0b1'
+  ------------------------------
+Left Shift(<<)
+
+print(10 << 2)
+40
+
+1010.0000 --> left shift-->101000.
+
+lef shift (10)	1	0	1	0	0	0	
+		5	4	3	2	1	0	
+		2	2	2	2	2	2	
+		32		8				40
+
+  ------------------------------
+Right ft(<<)
+
+print(10 >> 2)
+40
+
+1010.0000 --> Right shift-->001010
+
+Right shift (10)	0	0	0	0	1	0	
+			5	4	3	2	1	0	
+			2	2	2	2	2	2	
+							2		2

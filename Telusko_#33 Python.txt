@@ -1,0 +1,58 @@
+#33 Python Tutorial for Beginners | Function Arguments in Python					https://www.youtube.com/watch?v=ijXMGpoMkhQ&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=37
+  ------------------
+Pass by reference
+Pass by value
+
+Python is about passing by object. a and x refer to the same object while passing which is 10. 
+Then x is updated with another object 8.
+Python does not pass by value or reference but pass by object.
+when you change the value (x=8), you change address.
+in case of immutable object (int, float etc... "x=8"), it changes its address but 
+in case of mutable objects, object address remains the same.
+  ------------------
+def update(x):
+    print(id(x))
+    x=8
+    print(id(x))
+    print("x :",x)
+
+  ------------------------------------
+def update(x):
+    print('--func start--')
+    print("x :",x,id(x))
+    x=8
+    print("x :",x,id(x))
+    print('--func end-')
+
+a=10
+print("a :",a,id(a))
+update(a)
+print("a :",a,id(a))
+
+a : 10 140704141648560
+--func start--
+x : 10 140704141648560
+x : 8 140704141648496
+--func end-
+a : 10 140704141648560
+  ------------------------------------
+
+def update(lst):
+    print('--func start--')
+    print("lst :",lst,id(lst))
+    lst[1]=25
+    print("lst :",lst,id(lst))
+    print('--func end-')
+
+lst=[10,20,30]
+print("lst :",lst,id(lst))
+update(lst)
+print("lst :",lst,id(lst))
+
+lst : [10, 20, 30] 3144630532296
+--func start--
+lst : [10, 20, 30] 3144630532296
+lst : [10, 25, 30] 3144630532296
+--func end-
+lst : [10, 25, 30] 3144630532296
+  ------------------------------------

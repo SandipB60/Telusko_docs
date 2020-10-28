@@ -1,0 +1,198 @@
+#37 Python Tutorial for Beginners | Pass List to a Function in Python					https://www.youtube.com/watch?v=fsAzeNZXvkE&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=41
+  -------------------------------------
+
+def func(lst):
+    even = 0
+    odd  = 0
+    for i in lst:
+        if i%2 == 0: 
+           even+=1           
+        else:
+           odd+=1
+    print("odd :",odd," even :",even)
+
+lst=[10,11,12]
+print(lst)
+func(lst)
+
+[10, 11, 12]
+odd : 1  even : 2
+  --------------------------------
+
+def func(lst):
+    even = 0
+    odd  = 0
+    for i in lst:
+        if i%2 == 0: 
+           even+=1           
+        else:
+           odd+=1
+    return even,odd
+
+lst=[10,11,12]
+print(lst)
+a,b=func(lst)
+print("Even :{} and Odd :{}".format(a,b))
+
+[10, 11, 12]
+Even :2 and Odd :1
+
+  ------------------------------
+lst=[10,11,12]
+
+def func(lst):
+    even = 0
+    odd  = 0
+    for i in lst:
+        if i%2 == 0: 
+           even=i
+           print("even :",even)
+        else:
+           odd=i
+           print("odd :",odd)
+
+lst=[10,11,12]
+print(lst)
+func(lst)
+
+[10, 11, 12]
+even : 10
+odd : 11
+even : 12
+  ---------------------------------------
+def func(lst):
+    even = []
+    odd  = []
+    for i in lst:
+        if i%2==0: 
+           even.append(i)           
+        else:
+           odd.append(i)
+    print("Even: ",even, "odd: ",odd)    
+
+
+lst=[10,11,12]
+print(lst)
+func(lst)
+
+[10, 11, 12]
+Even:  [10, 12] odd:  [11]
+  --------------------------------------
+
+def func(lst):
+    even = []
+    odd  = []
+    for i in lst:
+        if i%2==0: 
+           even.append(i)           
+        else:
+           odd.append(i)
+    return even,odd
+    #print("Even: ",even, "odd: ",odd)    
+
+
+lst=[10,11,12]
+print(lst)
+a,b=func(lst)
+print("Even: ",a, "odd: ",b)
+
+[10, 11, 12]
+Even:  [10, 12] odd:  [11]
+
+ ----------------------------------------
+
+def func(lst):
+    even = []
+    odd  = []
+    for i in lst:
+        j=int(i)
+        if j%2==0: 
+           even.append(j)           
+        else:
+           odd.append(j)
+    return even,odd
+    #print("Even: ",even, "odd: ",odd) 
+
+
+def get_info():
+    n=int(input("Enter count:"))
+    #n=5
+    k=[]
+    for i in range(n):
+        x=int(input("enter list val:"))
+        k.append(x)
+    a,b=func(k)
+    print("Even: ",a, "odd: ",b)
+
+get_info()
+Enter count:7
+enter list val:23
+enter list val:92
+enter list val:44
+enter list val:47
+enter list val:72
+enter list val:99
+enter list val:100
+Even:  [92, 44, 72, 100] odd:  [23, 47, 99]
+  -------------------------------------------
+
+def func(lst):
+    cnt=0
+    for i in lst:
+        if len(i) >= 5: 
+           cnt+=1
+    return cnt
+
+def get_info():
+    n=int(input("Enter count:"))
+    #n=5
+    k=[]
+    for i in range(n):
+        x=input("enter list val:")
+        k.append(x)
+    print("K values are :",k)
+    a=func(k)
+    print("Total:{} and 5counters:{} ".format(n,a))
+
+
+get_info()
+
+Enter count:5
+enter list val:sgsgs
+enter list val:agaggdfhh
+enter list val:fff
+enter list val:hrff
+enter list val:gdgdshdfh
+K values are : ['sgsgs', 'agaggdfhh', 'fff', 'hrff', 'gdgdshdfh']
+Total:5 and 5counters:3
+
+ ------------------------
+
+def func(lst):
+    cnt=0
+    for i in lst:
+        if len(i) >= 5: 
+           cnt+=1
+    return cnt
+
+def get_info():
+    n=int(input("Enter count:"))
+    #n=5
+    k=[]
+    for i in range(n):
+        x=input("enter list val:")
+        k.append(x)
+    print("K values are :",k)
+    a=func(k)
+    print(f"Total:{n} and 5counters:{a}")
+
+Enter count:5
+enter list val:afaff
+enter list val:ffff
+enter list val:gssddfhg
+enter list val:asd
+enter list val:jvjfgkjghkgj
+K values are : ['afaff', 'ffff', 'gssddfhg', 'asd', 'jvjfgkjghkgj']
+Total:5 and 5counters:3
+
+ ----------------------------------------

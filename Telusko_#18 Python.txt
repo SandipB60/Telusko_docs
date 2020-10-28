@@ -1,0 +1,58 @@
+#18 Python Tutorial for Beginners | User input in Python | Command Line Input					https://www.youtube.com/watch?v=4OX49nLNPEE&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=21
+  --------------------------------------
+x=input()
+y=input()
+z=x+y
+print(z)
+
+x=input()
+y=input()
+z=int(x)+int(y)
+print(z)
+
+x=input("Enter first no:")
+y=input("Enter second no:")
+z=int(x)+int(y)
+print(z)
+
+In [1]: x=input("Enter first no:")
+   ...: y=input("Enter second no:")
+   ...: z=int(x)+int(y)
+   ...: print(z)
+Enter first no:3
+Enter second no:4
+7
+
+In [2]: x=input()
+   ...: y=input()
+   ...: z=x+y
+   ...: print(z)
+3
+4
+34
+  -------------------------------
+
+####print(int(input(x))+int(input(y)))
+  -------------------------------
+x= input("Enter first char:")
+print(x[0])
+
+y= input("Enter first char:")[0]
+print(y)
+  ---------------------------
+result=eval(input('enter an expr'))
+print(result)
+  -------------------------------
+user_ip_2
+
+import sys 
+x= sys.argv[1]
+print(x[0])
+a=sys.argv[2]
+b=sys.argv[3]
+z=a+b
+print(z)
+
+python user_ip_2.py 100 3 5
+  --------------------------------
+

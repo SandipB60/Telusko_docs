@@ -1,0 +1,343 @@
+practice
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class Students:
+    insti = "KGP"
+
+    def __init__(self, name, age, roll, sub1, sub2, sub3):
+        self.name = name
+        self.age = age
+        self.roll = roll
+        self.sub1 = sub1
+        self.sub2 = sub2
+        self.sub3 = sub3
+        self.lap = self.Laptop()
+        if self.set_score() == True:
+            self.result = "Pass"
+        else:
+            self.result = "Fail"
+
+    def get_avg(self):
+        return float((self.sub1 + self.sub2 + self.sub3) / 3)
+
+    def get_total(self):
+        return float((self.sub1 + self.sub2 + self.sub3))
+
+    def set_score(self):
+        if float(self.get_total()) >= 90.0 and float(self.get_avg()) >= 30.0:
+            return True
+        else:
+            return  False
+
+    def show(self):
+        if self.sub1 >= 50:
+            self.category="Science"
+            self.schol="Scholership"
+        else:
+            self.category ="Arts"
+            self.schol = "Non-Scholership"
+
+        return self.category, self.schol
+
+    @classmethod
+    def institute(cls):
+        return cls.insti
+    @staticmethod
+    def greet():
+        return "Bye"
+    class Laptop:
+        comp ="Dell"
+        #def __init__(self,cpu,ram):
+        def __init__(self):
+            self.cpu="i10"
+            self.ram="2gb"
+        def show(self):
+            self.cond="Old"
+            self.reissue="Re-issueable"
+            return str(self.cond),str(self.reissue)
+
+s1=Students("Sandip",13,1,70,90,90)
+s2=Students("Shah",20,2,40,30,10)
+#s1=Students("Sandip",13,1,70,90,90,("i10","1tb"))
+
+#s1l=Students.lap.show()
+#s1=Students("Sandip",13,1,70,90,90,"i10","1tb")
+#s2=Students("Shah",20,2,40,30,10,"i20","2tb")
+
+print(f"Name: {s1.name} Insti:{s1.institute()} Age:{s1.age} Roll No:{s1.roll} Total: {float(s1.get_total())} Avg: {float(s1.get_avg())} Result: {str(s1.result)}")
+print(f"{s1.name} show {s1.show()}")
+print(f"{s1.name} has laptop of Com:{s1.lap.comp} CPU:{s1.lap.cpu} RAM:{s1.lap.ram}")
+print(f"{s1.name} has laptop of {s1.lap.show()}")
+print(f'{s1.name} says {str(s1.greet())}')
+
+print(f"Name: {s2.name} Insti:{s2.institute()} Age:{s2.age} Roll No:{s2.roll} Total: {float(s2.get_total())} Avg: {float(s2.get_avg())} Result: {str(s2.result)}")
+print(f"{s2.name} show {s2.show()}")
+print(f"{s2.name} has laptop of Com:{s2.lap.comp} CPU:{s2.lap.cpu} RAM:{s2.lap.ram}")
+print(f"{s2.name} has laptop of {s2.lap.show()}")
+print(f'{s2.name} says {str(s2.greet())}')
+  --------------------------------------
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class Students:
+    insti = "KGP"
+
+    def __init__(self, name, age, roll, sub1, sub2, sub3):
+        self.name = name
+        self.age = age
+        self.roll = roll
+        self.sub1 = sub1
+        self.sub2 = sub2
+        self.sub3 = sub3
+        #self.lap = self.Laptop(self,self.cpu,self.ram)
+        self.lap = self.Laptop()
+        if self.set_score() == True:
+            self.result = "Pass"
+        else:
+            self.result = "Fail"
+
+    def get_avg(self):
+        return float((self.sub1 + self.sub2 + self.sub3) / 3)
+
+    def get_total(self):
+        return float((self.sub1 + self.sub2 + self.sub3))
+
+    def set_score(self):
+        if float(self.get_total()) >= 90.0 and float(self.get_avg()) >= 30.0:
+            return True
+        else:
+            return  False
+
+    def show(self):
+        if self.sub1 >= 50:
+            self.category="Science"
+            self.schol="Scholership"
+        else:
+            self.category ="Arts"
+            self.schol = "Non-Scholership"
+        return self.category, self.schol
+
+    @classmethod
+    def institute(cls):
+        return cls.insti
+
+    @staticmethod
+    def greet():
+        return "Bye"
+
+    class Laptop:
+        comp ="Dell"
+        #def __init__(self,cpu,ram):
+        def __init__(self):
+            #self.cpu=cpu
+            #self.ram=ram
+            self.cpu="i10"
+            self.ram="2gb"
+        def show(self):
+            self.cond="Old"
+            self.reissue="Re-issueable"
+            return self.cpu,self.ram, str(self.cond),str(self.reissue)
+
+s1=Students("Sandip",13,1,70,90,90)
+#s1=Students("Sandip",13,1,70,90,90,"i10","2gb")
+#s1l=Students.Laptop("i10","2gb")
+#s2=Students("Shah",20,2,40,30,10,"i20","4gb")
+#s1=Students("Sandip",13,1,70,90,90,("i10","1tb"))
+
+#s1l=Students.lap.show()
+#s1=Students("Sandip",13,1,70,90,90,"i10","1tb")
+#s2=Students("Shah",20,2,40,30,10,"i20","2tb")
+
+print(f"Name: {s1.name} Insti:{s1.institute()} Age:{s1.age} Roll No:{s1.roll} Total: {float(s1.get_total())} Avg: {float(s1.get_avg())} Result: {str(s1.result)}")
+print(f"{s1.name} show {s1.show()}")
+print(f"{s1.name} has laptop of Com:{s1.lap.comp} CPU:{s1.lap.cpu} RAM:{s1.lap.ram}")
+print(f"{s1.name} has laptop of {s1.lap.show()}")
+print(f'{s1.name} says {str(s1.greet())}')
+
+  ---------------------------------------------------------
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class Students:
+    insti = "KGP"
+
+    def __init__(self, name, age, roll, sub1, sub2, sub3,cpu,ram):
+        self.name = name
+        self.age = age
+        self.roll = roll
+        self.sub1 = sub1
+        self.sub2 = sub2
+        self.sub3 = sub3
+        self.cpu=cpu
+        self.ram=ram
+        #self.lap = self.Laptop(self,self.cpu,self.ram)
+        self.lap = self.Laptop(self.cpu, self.ram)
+        if self.set_score() == True:
+            self.result = "Pass"
+        else:
+            self.result = "Fail"
+
+    def get_avg(self):
+        return float((self.sub1 + self.sub2 + self.sub3) / 3)
+
+    def get_total(self):
+        return float((self.sub1 + self.sub2 + self.sub3))
+
+    def set_score(self):
+        if float(self.get_total()) >= 90.0 and float(self.get_avg()) >= 30.0:
+            return True
+        else:
+            return  False
+
+    def show(self):
+        if self.sub1 >= 50:
+            self.category="Science"
+            self.schol="Scholership"
+        else:
+            self.category ="Arts"
+            self.schol = "Non-Scholership"
+        return self.category, self.schol
+    def compare(self,other):
+        if self.age >= other.age:
+            return True
+        else:
+            return False
+
+    @classmethod
+    def institute(cls):
+        return cls.insti
+
+    @staticmethod
+    def greet():
+        return "Bye"
+
+    class Laptop:
+        comp ="Dell"
+        def __init__(self,cpu,ram):
+            self.cpu=cpu
+            self.ram=ram
+        def show(self):
+            self.cond="Old"
+            self.reissue="Re-issueable"
+            return self.cpu,self.ram, str(self.cond),str(self.reissue)
+
+
+s1=Students("Sandip",13,1,70,90,90,"i10","2gb")
+s2=Students("Shah",20,2,40,30,10,"i20","4gb")
+if s1.compare(s2)==True:
+     print("S1 is older than S2")
+else:
+    print("S1 is younger than S2")
+
+
+print(f"Name: {s1.name} Insti:{s1.institute()} Age:{s1.age} Roll No:{s1.roll} Total: {float(s1.get_total())} Avg: {float(s1.get_avg())} Result: {str(s1.result)}")
+print(f"{s1.name} show {s1.show()}")
+print(f"{s1.name} has laptop of Company: {s1.lap.comp} CPU:{s1.lap.cpu} RAM:{s1.lap.ram}")
+print(f"{s1.name} has laptop of {s1.lap.show()}")
+print(f'{s1.name} says {str(s1.greet())}')
+
+print(f"Name: {s2.name} Insti:{s2.institute()} Age:{s2.age} Roll No:{s2.roll} Total: {float(s2.get_total())} Avg: {float(s2.get_avg())} Result: {str(s2.result)}")
+print(f"{s2.name} show {s2.show()}")
+print(f"{s2.name} has laptop of Company: {s2.lap.comp} CPU:{s2.lap.cpu} RAM:{s2.lap.ram}")
+print(f"{s2.name} has laptop of {s2.lap.show()}")
+print(f'{s2.name} says {str(s2.greet())}')
+
+  ---------------------------------------------------
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class Subject:
+      sub_reg_date ='05-Jan'
+      def __init__(self,sub_id,sub_type,credit):
+          self.sub_id=sub_id
+          self.sub_type=sub_type
+          #self.sub_name=sub_name
+          self.credit=credit
+          self.sub_detls=self.sub_details(self.sub_type)
+
+      def get_semester(self):
+          if self.credit >= 4:
+              self.semester=2
+          else:
+              self.semester=1
+          return self.semester
+
+      def show_details(self):
+          return self.sub_id, self.sub_type, self.sub_name, self.credit, self.get_semester()
+
+      @classmethod
+      def get_reg_date(cls):
+          return cls.sub_reg_date
+
+      @staticmethod
+      def sub_message():
+          return "Sub Reg ended"
+
+      class sub_details:
+          def __init__(self,sub_type):
+              self.sub_type=sub_type
+          def sub_details(self):
+              if self.sub_type=="Science":
+                  subjects = "Math-Phy-Chem"
+              elif self.sub_type=="EcoStat":
+                  subjects = "Eco-Math-Stat"
+              elif self.sub_type=="Commerce":
+                  subjects = "Com-Math-Stat"
+              else:
+                  subjects = "Eng-Beng-Geo"
+              return subjects
+
+sub1=Subject(1,"Science",5)
+sub2=Subject(2,"EcoStat",4)
+sub3=Subject(3,"Commerce",3)
+sub4=Subject(4,"Eng-Beng-Geo",2)
+
+print(f"Reg starts on {sub1.sub_reg_date}")
+print(f" Sub_id: {sub1.sub_id} sub_type: {sub1.sub_type} sub_details: {sub1.sub_detls.sub_details()} Credit: {sub1.credit} Sem:{sub1.get_semester()}")
+print(f" Sub_id: {sub2.sub_id} sub_type: {sub2.sub_type} sub_details: {sub2.sub_detls.sub_details()} Credit: {sub2.credit} Sem:{sub2.get_semester()}")
+print(f" Sub_id: {sub3.sub_id} sub_type: {sub3.sub_type} sub_details: {sub3.sub_detls.sub_details()} Credit: {sub3.credit} Sem:{sub3.get_semester()}")
+print(f" Sub_id: {sub4.sub_id} sub_type: {sub4.sub_type} sub_details: {sub4.sub_detls.sub_details()} Credit: {sub4.credit} Sem:{sub4.get_semester()}")
+print(f"{Subject.sub_message()}")
+  -----------------
+Reg starts on 05-Jan
+ Sub_id: 1 sub_type: Science sub_details: Math-Phy-Chem Credit: 5 Sem:2
+ Sub_id: 2 sub_type: EcoStat sub_details: Eco-Math-Stat Credit: 4 Sem:2
+ Sub_id: 3 sub_type: Commerce sub_details: Com-Math-Stat Credit: 3 Sem:1
+ Sub_id: 4 sub_type: Eng-Beng-Geo sub_details: Eng-Beng-Geo Credit: 2 Sem:1
+Sub Reg ended
+class
+  ---------------------------------------------------
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  from Telusko_class_03_Subject import *
+from Telusko_class_03_Student import *
+
+#if __name__== "__main__":
+class Registration:
+        def __init__(self, stud_name, stud_roll, sub_id, sub_type):
+            self.stud_name = stud_name
+            self.stud_roll = stud_roll
+            self.sub_id = sub_id
+            self.sub_type = sub_type
+
+        def regtr(self):
+            if self.sub_type == "Science":
+                reg_id = "SCE-" + self.stud_name +"-"+ str(self.sub_id)
+            elif self.sub_type == "EcoStat":
+                reg_id = "ECS-" + self.stud_name +"-"+  str(self.sub_id)
+            elif self.sub_type == "Commerce":
+                reg_id = "COM-" + self.stud_name +"-"+  str(self.sub_id)
+            else:
+                reg_id = "ART-" + self.stud_name +"-"+  str(self.sub_id)
+            return reg_id
+
+sub1 = Subject(1, "Science", 5)
+s1 = Students("Sandip", 13, 1, 70, 90, 90, "i10", "2gb")
+reg1 = Registration(s1.name,s1.roll,sub1.sub_id,sub1.sub_type)
+print("--------------")
+print(reg1.regtr())
+#print(f"{__name__}--Student Regd")
+#print(f"Sub_id: {sub1.sub_id} sub_type: {sub1.sub_type} sub_details: {sub1.sub_detls.sub_details()} Credit: {sub1.credit} Name: {s1.name} Insti:{s1.institute()} Age:{s1.age} Roll No:{s1.roll} Total: {float(s1.get_total())} Avg: {float(s1.get_avg())} Result: {str(s1.result)}")
+
+
+##    elif __name__== "Telusko_class_03_Subject":
+##        print("Subject")
+##    elif __name__== "Telusko_class_03_Student":
+##        print("Student")
+##    else:
+##        print("Others")
+
+  ---------------------------------------------------
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

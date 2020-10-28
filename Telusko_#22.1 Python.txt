@@ -1,0 +1,44 @@
+#22.1 Python Tutorial for Beginners | Break vs Continue vs Pass in Python part 2					https://www.youtube.com/watch?v=JCRpVwtVL4I&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=26
+  ----------------------------------------
+Continue: Skips the remaining part of the current loop (block)/iterarion and goes back to the next iterarion of the same loop (block)
+Break: Breaks out of the current (inner) loop (block) and goes to the next iteration of the outer loop (block)
+Pass: does nothing (null) and goes to the next statement
+  ---------------------------------
+for i in range(5):
+    if i==3:
+       continue
+    print("hello : ",i)
+hello :  0
+hello :  1
+hello :  2
+hello :  4
+
+
+for i in range(5):
+    if i==3:
+       break
+    print("hello : ",i)
+hello :  0
+hello :  1
+hello :  2
+
+
+
+for i in range(5):
+    if i==3:
+       pass
+       print("1-hello : ",i)
+    print("2-hello : ",i)
+print("3-hello : ",i)
+
+2-hello :  0
+2-hello :  1
+2-hello :  2
+1-hello :  3
+2-hello :  3
+2-hello :  4
+3-hello :  4
+  ------------------------------------------------
+  ====================================================
+
+
