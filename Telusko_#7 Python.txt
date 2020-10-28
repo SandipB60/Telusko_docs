@@ -1,9 +1,0 @@
-#7 Python Tutorial for Beginners | Python Set Path in Windows and Help					https://www.youtube.com/watch?v=4V14G5_CNGg&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=9
- ========================
-from command prompt , set path=
-
-this pc --> propertes (right click)--> advanced system settings--> Environment variables--> path (edit)-->
-C:\Users\SANDIP\AppData\Local\Programs\Python\Python38-32
-C:\Users\SANDIP\AppData\Local\Programs\Python\Python38-32\Scripts
-
-HELP()
