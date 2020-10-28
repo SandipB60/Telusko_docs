@@ -1,6 +1,0 @@
-#67 Python Tutorial for Beginners | is Python Compiled or Interpreted Language?					https://www.youtube.com/watch?v=0BhSWyDEDC4&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&index=72
- ------------------------
-c, c++ are compiled to machine language 
-python is compiled yo byte code and that is interpreted to machine language ...i.e. it is both compiled and interpreted language.
-what wwe have done is cpython.
- ------------------------
